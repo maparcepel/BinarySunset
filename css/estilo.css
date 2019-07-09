@@ -1,0 +1,8 @@
+/*REPRODUCTOR MP3*/
+
+#player .play {
+        content: "Play";
+}
+#player .pause {
+        content: "Pause ";
+}
