@@ -227,47 +227,6 @@ function editAnnotation(region) {
                 note: form.elements.note.value
             }
         });
-        
-        $.ajax('guardaComentarios.php', {
-                    type: 'POST',
-                    dataType: 'json',
-                    data: {
-                        'inicio': form.elements.start.value,
-                        'fin': form.elements.end.value,
-                        'comentario': form.elements.note.value
-            }
-        }).then(function(respuesta){
-            console.log(respuesta);
-        });
-//        $.getJSON(localStorage.regions).then(function(respuesta){
-//            console.log(respuesta);
-//        })
-//        ;
-//        $.ajax('guardaComentarios.php', {
-//            type: 'POST',
-//            dataType: 'json',
-//            data: {
-//                'nombre': 'marcel',
-//                'mensaje': 'holaa'
-//            }
-//        }).then(function (respuesta) {
-//            console.log(respuesta);
-//            $('#respuesta').prepend($(`
-//                
-//                    ${respuesta.nombre}
-//                    ${respuesta.mensaje}
-//                
-//            `));
-//        });
-        
-//                    var ajax_url = "guardaComentarios.php";
-//                    var ajax_request = new XMLHttpRequest();
-//                    ajax_request.open( "POST", ajax_url, true );
-//                    ajax_request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-//                    ajax_request.send( region );
-               
-        
-        
         form.style.opacity = 0;
     };
     form.onreset = function() {
