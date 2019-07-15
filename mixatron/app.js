@@ -41,7 +41,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 data
             );
         });
-
+        
+//$.ajax('guardaComentarios.php', {
+//                    type: 'POST',
+//                    dataType: 'json',
+//                    data: {
+//                        'inicio': form.elements.start.value,
+//                        'fin': form.elements.end.value,
+//                        'comentario': form.elements.note.value
+//            }
+//        }).then(function(respuesta){
+//            console.log(respuesta);
+//        });
+        
+        
     /* Regions */
 
     wavesurfer.on('ready', function() {
@@ -227,6 +240,8 @@ function editAnnotation(region) {
                 note: form.elements.note.value
             }
         });
+
+        // GUARDAR COMENTARIOS EN BBDD
         
         $.ajax('guardaComentarios.php', {
                     type: 'POST',

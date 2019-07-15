@@ -1,9 +1,14 @@
 <?php
     require("../funciones.php");
     
-//    $con = conectarABBDD();
-//    $sql = "SELECT email FROM proyectos WHERE grupo='pink fl'";
-//    
+    $proyecto = 'Pink Floyd';
+    $cancion = 'Echoes';
+    $nomMix = 'mix1';
+    $con = conectarABBDD();
+    $sql = "SELECT ubicacion FROM mixes m INNER JOIN canciones c ON m.nomCancion = c.nomCancion WHERE c.grupo = 'Pink Floyd'";
+    $resultat = mysqli_query($con,$sql) or die("Consulta fallida:" . mysqli_error($con));
+    $registre = mysqli_fetch_array($resultat, MYSQLI_ASSOC);
+    print_r($registre);
     
         
 ?>

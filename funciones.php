@@ -4,8 +4,8 @@
 
 function conectarABBDD(){
             $ip = 'localhost';
-            $usuari = 'marcel';
-            $password = 'marcel';
+            $usuari = 'root';
+            $password = '';
             $db_name = 'marcel';
 
             // connectem amb la db
