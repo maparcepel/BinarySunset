@@ -8,7 +8,7 @@
     $sql = "SELECT ubicacion FROM mixes m INNER JOIN canciones c ON m.nomCancion = c.nomCancion WHERE c.grupo = 'Pink Floyd'";
     $resultat = mysqli_query($con,$sql) or die("Consulta fallida:" . mysqli_error($con));
     $registre = mysqli_fetch_array($resultat, MYSQLI_ASSOC);
-    print_r($registre);
+    $ubicacionCancion = $registre['ubicacion'];
     
         
 ?>
