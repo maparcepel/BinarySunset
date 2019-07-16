@@ -4,13 +4,43 @@
     $proyecto = 'Pink Floyd';
     $cancion = 'Echoes-mix1';
     $con = conectarABBDD();
+    //UBICACION DE LA CANCION A CARGAR EN APP.JS
     $sql = "SELECT ubicacion FROM canciones WHERE grupo = '" . $proyecto . "' && nombreCancion = '" . $cancion . "' ";
     $resultat = mysqli_query($con,$sql) or die("Consulta fallida:" . mysqli_error($con));
     $registre = mysqli_fetch_array($resultat, MYSQLI_ASSOC);
     $ubicacionCancion = $registre['ubicacion'];
-    $datos['ubicacion'] = $ubicacionCancion;
-    echo json_encode($datos);
-?>
+    //VARIABLES PARA ENVIAR COMENTARIOS A BD DESDE APP.JS
+    echo"<script>var proyecto='" . $proyecto . "'</script>";
+    echo"<script>var cancion='" . $cancion . "'</script>";
+    echo"<script>var ubicacionCancion='../" . $ubicacionCancion . "'</script>";
+    
+    //COMENTARIOS PARA CARGAR SOBRE EL AUDIO
+    $sql = "SELECT inicio, fin, comentario FROM comentarios WHERE nomCancion = '" . $cancion . "'";
+    $resultat = mysqli_query($con,$sql) or die("Consulta fallida:" . mysqli_error($con));
+    $num_filas = $resultat->num_rows;
+    $i = 1;
+    $array_json_regiones  =  '[';
+    
+    while($registre = mysqli_fetch_array($resultat, MYSQLI_ASSOC)){
+            
+                $array_json_regiones  .=  '{ 
+                    "start": "' . $registre['inicio'] . '",
+                    "end": "' . $registre['fin'] . '",
+                    "data": { "note": "' . $registre['comentario'] . '" }}
+                    ';
+            if($i < $num_filas){
+                $array_json_regiones  .=  ','  ; 
+            }
+            $i++;
+        }
+    $array_json_regiones  .=  ']'  ;   
+    echo $array_json_regiones;
+    echo "<script>var json_regiones =   . 
+        $array_json_regiones
+    . </script>";    
+
+    mysqli_close($con); 
+ ?>
 
 <html>
     <head>
@@ -25,10 +55,11 @@
         
          
         <?php
+        
             include('player.html');
         ?>
         <p id="respuesta"></p>
-        marcel
+        
          
     </body>
 </html>

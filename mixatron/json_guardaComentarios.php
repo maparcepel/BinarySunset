@@ -16,7 +16,7 @@
               
                 
                 $con = conectarABBDD();
-                $sql = 'INSERT INTO marcel.comentarios (nomCancion,comentario, inicio, fin) VALUES  ("' . $cancion . '", "' . $comentario . '", "' . $inicio . '", "' . $fin . '")';
+                $sql = 'INSERT INTO marcel.comentarios VALUES  (null, "' . $cancion . '", "' . $comentario . '", "' . $inicio . '", "' . $fin . '")';
                 $resultat = mysqli_query($con,$sql) or die('Consulta fallida: ' . mysqli_error($con));
                 
                 mysqli_close($con);
