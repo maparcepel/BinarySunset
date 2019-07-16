@@ -26,8 +26,7 @@
                 $array_json_regiones  .=  '{ 
                     "start": "' . $registre['inicio'] . '",
                     "end": "' . $registre['fin'] . '",
-                    "data": { "note": "' . $registre['comentario'] . '" }}
-                    ';
+                    "data": { "note": "' . $registre['comentario'] . '" }}';
             if($i < $num_filas){
                 $array_json_regiones  .=  ','  ; 
             }
@@ -35,9 +34,7 @@
         }
     $array_json_regiones  .=  ']'  ;   
     echo $array_json_regiones;
-    echo "<script>var json_regiones =   . 
-        $array_json_regiones
-    . </script>";    
+    echo "<script>var json_regiones = " . $array_json_regiones . "</script>";    
 
     mysqli_close($con); 
  ?>

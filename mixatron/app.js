@@ -56,14 +56,14 @@ document.addEventListener('DOMContentLoaded', function() {
 //        if (localStorage.regions) {
 //            loadRegions(JSON.parse(localStorage.regions));
 //        } else {
-           var data = JSON.parse(json_regiones);
+//           var data = JSON.parse(json_regiones);
 //            wavesurfer.util
 //                .ajax({
 //                    responseType: 'json',
 //                    url: 'annotations.json'
 //                })
 //                .on('success', function(data) {
-                    loadRegions(data);
+                    loadRegions(json_regiones);
                     saveRegions();
 //                });
 //        }
