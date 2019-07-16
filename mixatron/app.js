@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
             url: 'rashomon.json'
         })
         .on('success', function(data) {
+            
             wavesurfer.load(
                 'http://www.archive.org/download/mshortworks_001_1202_librivox/msw001_03_rashomon_akutagawa_mt_64kb.mp3',
                 data
@@ -241,12 +242,13 @@ function editAnnotation(region) {
             }
         });
 
-        // GUARDAR COMENTARIOS EN BBDD
+        //                                                                      GUARDAR COMENTARIOS EN BBDD
         
-        $.ajax('guardaComentarios.php', {
+        $.ajax('json_guardaComentarios.php', {
                     type: 'POST',
                     dataType: 'json',
                     data: {
+                        'cancion': 'Echoes-mix1',
                         'inicio': form.elements.start.value,
                         'fin': form.elements.end.value,
                         'comentario': form.elements.note.value

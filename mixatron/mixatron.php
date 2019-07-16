@@ -2,15 +2,14 @@
     require("../funciones.php");
     
     $proyecto = 'Pink Floyd';
-    $cancion = 'Echoes';
-    $nomMix = 'mix1';
+    $cancion = 'Echoes-mix1';
     $con = conectarABBDD();
-    $sql = "SELECT ubicacion FROM mixes m INNER JOIN canciones c ON m.nomCancion = c.nomCancion WHERE c.grupo = 'Pink Floyd'";
+    $sql = "SELECT ubicacion FROM canciones WHERE grupo = '" . $proyecto . "' && nombreCancion = '" . $cancion . "' ";
     $resultat = mysqli_query($con,$sql) or die("Consulta fallida:" . mysqli_error($con));
     $registre = mysqli_fetch_array($resultat, MYSQLI_ASSOC);
     $ubicacionCancion = $registre['ubicacion'];
-    
-        
+    $datos['ubicacion'] = $ubicacionCancion;
+    echo json_encode($datos);
 ?>
 
 <html>
@@ -29,7 +28,7 @@
             include('player.html');
         ?>
         <p id="respuesta"></p>
-        
+        marcel
          
     </body>
 </html>

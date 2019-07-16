@@ -27,13 +27,10 @@ and open the template in the editor.
           
 
                 // Realizamos la petición
-                $.ajax('guardaComentarios.php', {
+                $.ajax('mixatron.php', {
                     type: 'POST',
                     dataType: 'json',
-                    data: {
-                        'nombre': 'marcel',
-                        'mensaje': 'hoolaa'
-            }
+                    
         }).then(function(respuesta){
             console.log(respuesta);
         });
