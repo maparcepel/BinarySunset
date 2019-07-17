@@ -65,13 +65,14 @@ document.addEventListener('DOMContentLoaded', function() {
 //                .on('success', function(data) {
                     loadRegions(json_regiones);
                     saveRegions();
+                   
 //                });
 //        }
     });
     wavesurfer.on('region-click', function(region, e) {
         e.stopPropagation();
         // Play on click, loop on shift click
-        e.shiftKey ? region.playLoop() : region.play();
+        e.shiftKey ? region.playLoop() : region.play();               
     });
     wavesurfer.on('region-click', editAnnotation);
     wavesurfer.on('region-updated', saveRegions);
@@ -214,8 +215,23 @@ function randomColor(alpha) {
 function editAnnotation(region) {
     var form = document.forms.edit;
     form.style.opacity = 1;
-    (form.elements.start.value = Math.round(region.start * 10) / 10),
-        (form.elements.end.value = Math.round(region.end * 10) / 10);
+    
+                                                                                //CONVERTIR SEGUNDOS A FORMATO MIN:SEG
+
+    var inicio_minutos = Math.floor(region.start / 60);
+    var inicio_segundos = Math.round(region.start % 60);
+    if(inicio_segundos < 10){
+        inicio_segundos = "0"+inicio_segundos;
+    };
+   
+    var fin_minutos = Math.floor(region.end / 60);
+    var fin_segundos = Math.round(region.end % 60);
+    if(fin_segundos < 10){
+        fin_segundos = "0"+fin_segundos;
+    };
+    (form.elements.idregion.value =region.id),
+    (form.elements.start.value = inicio_minutos+":"+inicio_segundos),
+        (form.elements.end.value =  fin_minutos+":"+fin_segundos);
     form.elements.note.value = region.data.note || '';
     form.onsubmit = function(e) {
         e.preventDefault();
@@ -236,7 +252,8 @@ function editAnnotation(region) {
                         'cancion': cancion,
                         'inicio': form.elements.start.value,
                         'fin': form.elements.end.value,
-                        'comentario': form.elements.note.value
+                        'comentario': form.elements.note.value,
+                        'idregion': form.elements.idregion.value,
             }
         }).then(function(respuesta){
             console.log(respuesta);
@@ -294,7 +311,7 @@ function showNote(region) {
  */
 window.GLOBAL_ACTIONS['delete-region'] = function() {
     var form = document.forms.edit;
-    var regionId = form.dataset.region;
+    var regionId = region.id;
     if (regionId) {
         wavesurfer.regions.list[regionId].remove();
         form.reset();

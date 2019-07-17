@@ -29,45 +29,44 @@ document.addEventListener('DOMContentLoaded', function() {
             })
         ]
     });
-
+//                                                                    CARGAR CANCION
     wavesurfer.util
         .ajax({
             responseType: 'json',
             url: 'rashomon.json'
         })
         .on('success', function(data) {
+            
             wavesurfer.load(
-                'http://www.archive.org/download/mshortworks_001_1202_librivox/msw001_03_rashomon_akutagawa_mt_64kb.mp3',
+                ubicacionCancion,
                 data
             );
         });
-
-    /* Regions */
+        
+ 
+        
+        
+    /* Regions                                              CARGAR REGIONES DE AUDIO */
 
     wavesurfer.on('ready', function() {
         wavesurfer.enableDragSelection({
             color: randomColor(0.1)
         });
 
-        if (localStorage.regions) {
-            loadRegions(JSON.parse(localStorage.regions));
-        } else {
-            // loadRegions(
-            //     extractRegions(
-            //         wavesurfer.backend.getPeaks(512),
-            //         wavesurfer.getDuration()
-            //     )
-            // );
-            wavesurfer.util
-                .ajax({
-                    responseType: 'json',
-                    url: 'annotations.json'
-                })
-                .on('success', function(data) {
-                    loadRegions(data);
+//        if (localStorage.regions) {
+//            loadRegions(JSON.parse(localStorage.regions));
+//        } else {
+//           var data = JSON.parse(json_regiones);
+//            wavesurfer.util
+//                .ajax({
+//                    responseType: 'json',
+//                    url: 'annotations.json'
+//                })
+//                .on('success', function(data) {
+                    loadRegions(json_regiones);
                     saveRegions();
-                });
-        }
+//                });
+//        }
     });
     wavesurfer.on('region-click', function(region, e) {
         e.stopPropagation();
@@ -227,11 +226,14 @@ function editAnnotation(region) {
                 note: form.elements.note.value
             }
         });
+
+        //                                                                      GUARDAR COMENTARIOS EN BBDD
         
-        $.ajax('guardaComentarios.php', {
+        $.ajax('json_guardaComentarios.php', {
                     type: 'POST',
                     dataType: 'json',
                     data: {
+                        'cancion': cancion,
                         'inicio': form.elements.start.value,
                         'fin': form.elements.end.value,
                         'comentario': form.elements.note.value
@@ -239,7 +241,34 @@ function editAnnotation(region) {
         }).then(function(respuesta){
             console.log(respuesta);
         });
-
+//        $.getJSON(localStorage.regions).then(function(respuesta){
+//            console.log(respuesta);
+//        })
+//        ;
+//        $.ajax('guardaComentarios.php', {
+//            type: 'POST',
+//            dataType: 'json',
+//            data: {
+//                'nombre': 'marcel',
+//                'mensaje': 'holaa'
+//            }
+//        }).then(function (respuesta) {
+//            console.log(respuesta);
+//            $('#respuesta').prepend($(`
+//                
+//                    ${respuesta.nombre}
+//                    ${respuesta.mensaje}
+//                
+//            `));
+//        });
+        
+//                    var ajax_url = "guardaComentarios.php";
+//                    var ajax_request = new XMLHttpRequest();
+//                    ajax_request.open( "POST", ajax_url, true );
+//                    ajax_request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//                    ajax_request.send( region );
+               
+        
         
         form.style.opacity = 0;
     };

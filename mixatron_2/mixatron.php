@@ -15,7 +15,7 @@
     echo"<script>var ubicacionCancion='../" . $ubicacionCancion . "'</script>";
     
     //COMENTARIOS PARA CARGAR SOBRE EL AUDIO
-    $sql = "SELECT idComentario, inicio, fin, comentario FROM Comentarios WHERE nomCancion = '" . $cancion . "'";
+    $sql = "SELECT inicio, fin, comentario FROM Comentarios WHERE nomCancion = '" . $cancion . "'";
     $resultat = mysqli_query($con,$sql) or die("Consulta fallida:" . mysqli_error($con));
     $num_filas = $resultat->num_rows;
     $i = 1;
@@ -24,7 +24,6 @@
     while($registre = mysqli_fetch_array($resultat, MYSQLI_ASSOC)){
             
                 $array_json_regiones  .=  '{ 
-                    
                     "start": "' . $registre['inicio'] . '",
                     "end": "' . $registre['fin'] . '",
                     "data": { "note": "' . $registre['comentario'] . '" }}';

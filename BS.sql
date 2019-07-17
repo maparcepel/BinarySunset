@@ -52,7 +52,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `marcel`.`Comentarios`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `marcel`.`Comentarios` (
-  `idComentario` INT(11) NOT NULL,
+  `idComentario` INT(11) NOT NULL AUTO_INCREMENT,
   `nomCancion` VARCHAR(50) NULL DEFAULT NULL,
   `comentario` LONGTEXT NULL DEFAULT NULL,
   `inicio` VARCHAR(10) NULL DEFAULT NULL,
@@ -90,6 +90,9 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
+ALTER TABLE `marcel`.`Comentarios` 
+ADD COLUMN `idregion` VARCHAR(45) NULL AFTER `fin`;
 
-INSERT INTO proyectos VALUES ('Pink Floyd', 'pink@gmail.com', '');
-INSERT INTO canciones VALUES ('Echoes-mix1', 'Pink Floyd', 'mp3/Primal_Scream_-_Loaded.mp3' );
+
+INSERT INTO Proyectos VALUES ('Pink Floyd', 'pink@gmail.com', '');
+INSERT INTO Canciones VALUES ('Echoes-mix1', 'Pink Floyd', 'mp3/Primal_Scream_-_Loaded.mp3' );
