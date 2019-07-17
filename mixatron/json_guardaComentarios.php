@@ -19,13 +19,13 @@
                echo $idregion;
                 $con = conectarABBDD();
 //SI EXISTE ESTE COMENTARIO SE EDITA EN LUGAR DE AGREGAR NUEVO                
-                $sql = 'SELECT idregion FROM Comentarios WHERE idregion = ' . $idregion;
-                $resultat = mysqli_query($con,$sql) or die('Consulta fallida: ' . mysqli_error($con));
-                if(mysqli_num_rows($result) > 0){
-                    $sql = 'UPDATE Comentarios SET comentario = "' . $comentario . '", inicio = "' . $inicio . '", fin =  "' . $fin . '" WHERE idregion = "' . $idregion . '" '  ;
-                }else{
+//                $sql = 'SELECT idregion FROM Comentarios WHERE idregion = ' . $idregion;
+//                $resultat = mysqli_query($con,$sql) or die('Consulta fallida: ' . mysqli_error($con));
+//                if(mysqli_num_rows($resultat) > 0){
+//                    $sql = 'UPDATE Comentarios SET comentario = "' . $comentario . '", inicio = "' . $inicio . '", fin =  "' . $fin . '" WHERE idregion = "' . $idregion . '" '  ;
+//                }else{
                     $sql = 'INSERT INTO Comentarios VALUES  (null, "' . $cancion . '", "' . $comentario . '", "' . $inicio . '", "' . $fin . '", "' . $idregion . '")';
-                }
+//                }
                 $resultat = mysqli_query($con,$sql) or die('Consulta fallida: ' . mysqli_error($con));
                 
                 mysqli_close($con);
