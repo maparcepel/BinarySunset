@@ -1,7 +1,9 @@
 /*MENU*/
-
+nav{
+    background: none !important;
+    
+}
 #menu{
-    background-color: #272523 !important;
     font-family: 'Pathway Gothic One', sans-serif;
     font-size: 1.4rem;
 }
@@ -28,5 +30,7 @@
 
 body{
     background-color: #272523;
+    background-image: url("../img/textura.jpg");
+    background-repeat: repeat;
     color: #f1ede3;
 }
