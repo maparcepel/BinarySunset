@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     wavesurfer.on('region-click', function(region, e) {
         e.stopPropagation();
         // Play on click, loop on shift click
-        e.shiftKey ? region.playLoop() : region.play();               
+//        e.shiftKey ? region.playLoop() : region.play();               
     });
     wavesurfer.on('region-click', editAnnotation);
     wavesurfer.on('region-updated', saveRegions);
@@ -229,13 +229,14 @@ function editAnnotation(region) {
     if(fin_segundos < 10){
         fin_segundos = "0"+fin_segundos;
     };
-    (form.elements.idcomentario.value =region.attributes.label),  
+    (form.elements.idcomentario.value =region.attributes.label),                      //PONER idcomentario EN FORM
     (form.elements.start.value = inicio_minutos+":"+inicio_segundos),
         (form.elements.end.value =  fin_minutos+":"+fin_segundos);
     form.elements.note.value = region.data.note || '';
     form.onsubmit = function(e) {
         e.preventDefault();
         region.update({
+            idcomentario: form.elements.idcomentario.value,
             start: form.elements.start.value,
             end: form.elements.end.value,
             data: {
@@ -243,7 +244,7 @@ function editAnnotation(region) {
             }
         });
 
-        //                                                                      GUARDAR COMENTARIOS EN BBDD
+        //                                                                COGER COMENTARIOS DEL FORM Y GUARDARLOS EN BBDD
         
         $.ajax('json_guardaComentarios.php', {
                     type: 'POST',
@@ -256,7 +257,7 @@ function editAnnotation(region) {
                         'idcomentario': form.elements.idcomentario.value,
             }
         }).then(function(respuesta){
-            console.log(respuesta);
+            console.log('respuesta');
         });
 //        $.getJSON(localStorage.regions).then(function(respuesta){
 //            console.log(respuesta);
@@ -307,29 +308,28 @@ function showNote(region) {
 }
 
 /**
- * Bind controls.
+ * Bind controls.                                                                   COGER DATOS DEL FORM Y  BORRAR REGION
  */
 window.GLOBAL_ACTIONS['delete-region'] = function() {
     var form = document.forms.edit;
-//    var regionId = region.id;
-//    if (regionId) {
-//        wavesurfer.regions.list[regionId].remove();
-//        form.reset();
-//    }
-    //                                                                                           BORRA REGION 
-    $.ajax('json_borraComentarios.php', {
-                    type: 'POST',
-                    dataType: 'json',
-                    data: {
-                        'cancion': cancion,
-                        'inicio': form.elements.start.value,
-                        'fin': form.elements.end.value,
-                        'comentario': form.elements.note.value,
-                        'idcomentario': form.elements.idcomentario.value,
-            }
-        }).then(function(respuesta){
-            console.log(respuesta);
-        });
+    var regionId = form.dataset.region;
+    if (regionId) {
+        wavesurfer.regions.list[regionId].remove();
+        form.reset();
+    };
+//    $.ajax('json_borraComentarios.php', {
+//                    type: 'POST',
+//                    dataType: 'json',
+//                    data: {
+//                        'cancion': cancion,
+//                        'inicio': form.elements.start.value,
+//                        'fin': form.elements.end.value,
+//                        'comentario': form.elements.note.value,
+//                        'idcomentario': form.elements.idcomentario.value,
+//            }
+//        }).then(function(respuesta){
+//            console.log(respuesta);
+//        });
 };
 
 window.GLOBAL_ACTIONS['export'] = function() {

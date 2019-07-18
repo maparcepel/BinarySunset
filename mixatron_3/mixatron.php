@@ -24,7 +24,7 @@
     while($registre = mysqli_fetch_array($resultat, MYSQLI_ASSOC)){
             
                 $array_json_regiones  .=  '{ 
-                    "attributes": { "label": "' . $registre['idComentario'] . '", "highlight": true },
+                    "attributes": { "label": "' . $registre['idComentario'] . '" },
                     "start": "' . $registre['inicio'] . '",
                     "end": "' . $registre['fin'] . '",
                     "data": { "note": "' . $registre['comentario'] . '" }}';
@@ -36,6 +36,7 @@
     $array_json_regiones  .=  ']'  ;   
     echo $array_json_regiones;
     echo "<script>var json_regiones = " . $array_json_regiones . "</script>";    
+
     mysqli_close($con); 
  ?>
 

@@ -13,9 +13,11 @@
 }
 #menu a{
     padding: 0px;
-    margin-right:20px;
+    margin:0px 20px 0px 0px;
 }
-
+#menu li:last-of-type a{
+    margin-right: 0px;
+}
 #menu ul{
     border-bottom: 1px solid #f1ede3;
     border-top: 1px solid #f1ede3;

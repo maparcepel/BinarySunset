@@ -311,25 +311,11 @@ function showNote(region) {
  */
 window.GLOBAL_ACTIONS['delete-region'] = function() {
     var form = document.forms.edit;
-//    var regionId = region.id;
-//    if (regionId) {
-//        wavesurfer.regions.list[regionId].remove();
-//        form.reset();
-//    }
-    //                                                                                           BORRA REGION 
-    $.ajax('json_borraComentarios.php', {
-                    type: 'POST',
-                    dataType: 'json',
-                    data: {
-                        'cancion': cancion,
-                        'inicio': form.elements.start.value,
-                        'fin': form.elements.end.value,
-                        'comentario': form.elements.note.value,
-                        'idcomentario': form.elements.idcomentario.value,
-            }
-        }).then(function(respuesta){
-            console.log(respuesta);
-        });
+    var regionId = region.id;
+    if (regionId) {
+        wavesurfer.regions.list[regionId].remove();
+        form.reset();
+    }
 };
 
 window.GLOBAL_ACTIONS['export'] = function() {
