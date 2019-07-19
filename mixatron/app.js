@@ -245,7 +245,7 @@ function editAnnotation(region) {
 
         //                                                                      GUARDAR COMENTARIOS EN BBDD
         
-        $.ajax('json_guardaComentarios.php', {
+      /*  $.ajax('json_guardaComentarios.php', {
                     type: 'POST',
                     dataType: 'json',
                     data: {
@@ -257,7 +257,37 @@ function editAnnotation(region) {
             }
         }).then(function(respuesta){
             console.log(respuesta);
+            console.log("hols");
         });
+        */
+        $.ajax({
+    // En data puedes utilizar un objeto JSON, un array o un query string
+   data: {
+                        'cancion': cancion,
+                        'inicio': form.elements.start.value,
+                        'fin': form.elements.end.value,
+                        'comentario': form.elements.note.value,
+                        'idcomentario': form.elements.idcomentario.value,
+            },
+    //Cambiar a type: POST si necesario
+    type: "POST",
+    // Formato de datos que se espera en la respuesta
+    dataType: "json",
+    // URL a la que se enviará la solicitud Ajax
+    url: "json_guardaComentarios.php",
+})
+ .done(function( data, textStatus, jqXHR ) {
+     if ( console && console.log ) {
+         console.log( "La solicitud se ha completado correctamente." );
+ location.reload();
+ 
+     }
+ })
+ .fail(function( jqXHR, textStatus, errorThrown ) {
+     if ( console && console.log ) {
+         console.log( "La solicitud a fallado: " +  errorThrown);
+     }
+});
 //        $.getJSON(localStorage.regions).then(function(respuesta){
 //            console.log(respuesta);
 //        })

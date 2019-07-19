@@ -8,7 +8,7 @@ nav{
     font-size: 1.4rem;
 }
 #menu li{
-        background-color: #272523;
+        background-color: none;
 }
 .navbar-light .navbar-nav .nav-link {
     color: #f1ede3 !important;
@@ -24,7 +24,12 @@ nav{
     border-bottom: 1px solid #f1ede3;
     border-top: 1px solid #f1ede3;
 }
-
+#menu button{
+    border:1px solid #f1ede3;
+}
+#menu button:link{
+    border:1px solid #f1ede3;
+}
 
 /*EQUPAMIENTO*/
 

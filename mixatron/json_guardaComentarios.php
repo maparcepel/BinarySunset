@@ -28,5 +28,7 @@
                 $resultat = mysqli_query($con,$sql) or die('Consulta fallida: ' . mysqli_error($con));
                 
                 mysqli_close($con);
+                
+                echo json_encode("[status:ok]");
 }
 ?>
