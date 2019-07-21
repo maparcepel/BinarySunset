@@ -1,12 +1,23 @@
+.naranja{
+    color:#ca6238;
+}
 /*MENU*/
 nav{
     background: none !important;
-    
 }
 #menu{
     font-family: 'Pathway Gothic One', sans-serif;
     font-size: 1.4rem;
+    background-image: url("../img/menu_iconos.png");
+    background-repeat: no-repeat;
 }
+@media (max-width: 991px) {
+    #menu{
+        background-image: url("../img/menu_iconos_transparente.png");
+        background-repeat: no-repeat;
+    }
+}
+
 #menu li{
         background-color: none;
 }
@@ -38,4 +49,18 @@ body{
     background-image: url("../img/textura.jpg");
     background-repeat: repeat;
     color: #f1ede3;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
 }
+#equipament #contenido ul{
+    list-style: none;
+    padding-left: 0px;
+}
+#equipament #contenido li{
+    padding-left: 16px;
+    background: url(../img/eq_list.png) 0 11px no-repeat;
+    margin-bottom: -5px;
+    padding-top: 5px;
+}
+
+/*ARTISTES*/

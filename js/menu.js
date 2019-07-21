@@ -1,8 +1,9 @@
   $(document).ready(function(){
        pagina = $( "html" ).prop('id').toUpperCase();
-       enlace = $('a[id="pagina"]') ;
-       enlace.addClass('active');
-       console.log(enlace);
+       li = $('#menu').find('a').filter(function(indice, elemento){
+          return $(elemento).text() === pagina; 
+       });
+       li.addClass('active');
        
       
         

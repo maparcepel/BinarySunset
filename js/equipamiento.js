@@ -2,6 +2,6 @@
      
        $( "#menu" ).load( "menu.html" );
    
-  
+       $( "#slider" ).load( "slider/slider.html" );
  });
 
