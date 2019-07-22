@@ -1,10 +1,7 @@
 <?php
 
     session_start();
-    $mensaje_confirmacion='';
-    if(isset($_SESSION['mensaje_confirmacion'])) {
-        $mensaje_confirmacion=$_SESSION['mensaje_confirmacion'];
-    }
+    
     $errornombre="";
     $erroremail="";
     $errorcomentario="";
@@ -46,14 +43,15 @@
                 </div>
                 <div class="col-sm-12 col-md-6 mt-5">
                     <div>
-                            <?php  if(isset($_REQUEST["submit"])){
-            $nombre = htmlspecialchars($_REQUEST["nombre"]);
-            $email = htmlspecialchars($_REQUEST["email"]);
-            $comentario = htmlspecialchars($_REQUEST["comentario"]);
-//            
-            enviarMensaje($nombre, $email, $comentario);
-            echo "Hemos recibido tu mensaje. <br>En breve nos pondremos en contacto.<br>";
-         }?>
+<!-- ENVIA MENSAJE Y MUESTRA CONFIRMACION                       -->
+                    <?php  if(isset($_REQUEST["submit"])){
+                        $nombre = htmlspecialchars($_REQUEST["nombre"]);
+                        $email = htmlspecialchars($_REQUEST["email"]);
+                        $comentario = htmlspecialchars($_REQUEST["comentario"]);
+                       
+                        enviarMensaje($nombre, $email, $comentario);
+                        echo "Hemos recibido tu mensaje. <br>En breve nos pondremos en contacto.<br>";
+                     }?>
                     </div>
                     <form  method="post" action="">
                         <div class="form-group">
