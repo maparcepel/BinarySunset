@@ -1,4 +1,15 @@
+<?php
 
+    session_start();
+    
+    $errornombre="";
+    $erroremail="";
+    $errorcomentario="";
+    require("funciones.php");
+    require("email/funcionespass.php");
+
+       
+?>
 <html id="contacte">
     <head>
         <title>Contacte</title>
@@ -32,20 +43,28 @@
                 </div>
                 <div class="col-sm-12 col-md-6 mt-5">
                     <div>
-                    
+<!-- ENVIA MENSAJE Y MUESTRA CONFIRMACION                       -->
+                    <?php  if(isset($_REQUEST["submit"])){
+                        $nombre = htmlspecialchars($_REQUEST["nombre"]);
+                        $email = htmlspecialchars($_REQUEST["email"]);
+                        $comentario = htmlspecialchars($_REQUEST["comentario"]);
+                       
+                        enviarMensaje($nombre, $email, $comentario);
+                        echo "Hemos recibido tu mensaje. <br>En breve nos pondremos en contacto.<br>";
+                     }?>
                     </div>
                     <form  method="post" action="">
                         <div class="form-group">
-                            <label for="idnombre">Nombre<span class="rojo">*</span><span class="rojo"></span><span id="error_nombre"></span></label>
-                            <input type="text" class="form-control form-control-sm" id="idnombre" name="nombre" data-rule="required" data-msg="Debes escribir tu nombre">
+                            <label for="idnombre">Nombre<span class="rojo">*</span><span class="rojo"><?=$errornombre?></span></label>
+                            <input type="text" class="form-control form-control-sm" id="idnombre" name="nombre">
                         </div>
                         <div class="form-group">
-                            <label for="idemail">Email<span class="rojo">*</span><span class="rojo"></span><span id="error_email"></span></label>
-                            <input type="text" class="form-control form-control-sm" id="idemail" name="email" data-rule="email" data-msg='el formato no es valido'>
+                            <label for="idemail">Email<span class="rojo">*</span><span class="rojo"><?=$erroremail?></span></label>
+                            <input type="text" class="form-control form-control-sm" id="idemail" name="email">
                         </div>
                         <div class="form-group">
-                            <label for="idcomentario">Comentario<span class="rojo">*</span><span class="rojo"></span><span id="error_comentario"></label>
-                            <textarea  class="form-control form-control-sm" id="idcomentario" rows="4" maxlength="500" name="comentario" data-rule="required" data-msg="Debes escribir un comentario"></textarea>
+                            <label for="idcomentario">Comentario<span class="rojo">*</span><span class="rojo"><?=$errorcomentario?></span></label>
+                            <textarea  class="form-control form-control-sm" id="idcomentario" rows="4" maxlength="500" name="comentario"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="idboton"></label>
@@ -65,6 +84,5 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="js/agregamenu.js"></script>
-        <script src="js/contacte.js"></script>
     </body>
 </html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+  <script src="lib/js/jquery-3.3.1.min.js"></script>
+  <style type="text/css">
+  	a{
+  		cursor: pointer;
+  	}
+  </style>
+</head>
+<body>
+<p>Type 'correct' to validate.</p>
+
+<script>
+		function cargar(pag){
+			$("#principal").load(pag);
+		}
+
+
+	$(document).ready(function(){
+		$("#principal").load('pag2.html');
+
+		$("form").submit(function( event ) {
+			var error=false;
+			var ierror= false;
+			var checked= false;
+			var emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
+			
+			$(this).children('input:not(input[type=submit],input[type=radio]),textarea').each(function(){
+				var input= $(this);
+				switch(input.attr('data-rule')){
+					case 'required':
+						if(input.val()=="") ierror=error=true;
+						else ierror=false
+					break;
+
+					case 'email':
+						if (!emailExp.test(input.val())) ierror=error=true;
+						else ierror=false
+					break;
+
+					case 'minleng':
+						if(input.val().length<4) ierror=error=true;
+						else ierror=false	
+					break;
+
+					case 'checked':
+						if(!input.attr('checked')) ierror=error=true;
+						else ierror=false
+					break;
+				}
+				
+
+				if(ierror) $("#error_"+input.attr('name')).text(input.attr('data-msg'));
+				else $("#error_"+input.attr('name')).text('');
+				
+			});
+			/*Validar radioButton*/
+			$(this).children('input[type=radio]').each(function(){
+				
+				input= $(this);
+				if(input.is(':checked')){
+				checked=true;
+				 error = true;
+				}
+			});
+			if(!checked) $("#error_"+input.attr('name')).text(input.attr('data-msg'));
+			else $("#error_"+input.attr('name')).text('');
+		
+		  if(error)event.preventDefault();  // impide que se envía el formulario
+		});
+
+	
+	});
+
+	
+</script>
+
+<form action="destino.html">
+	<input type="text" name="nombre" data-rule="required" data-msg="El campo nombre no puede estar vacio"> <span id="error_nombre"></span><br>
+	<input type="text" name="email" data-rule="email" data-msg='el formato no es valido'><span id="error_email"></span><br>
+	<input type="text" name="direccion" data-rule="minleng" data-msg='longitud minima es 4'><span id="error_direccion"></span><br>
+
+	<label>Opciones</label><span id="error_opciones"></span><br>
+	<input type="radio" name="opciones" value="1" data-msg="elige una opcion">opcion 1
+	<input type="radio" name="opciones" value="2"  data-msg="elige una opcion">opcion 2<br>
+	<textarea name="comentaris" data-rule="required" data-msg="Obligatorio" cols="30" rows="6"></textarea> <span id="error_comentaris"></span><br>
+		<input type="submit" value="Enviar">
+</form>
+<a onclick="cargar('pag1.html')">pagina 1</a><br>
+<a  onclick="cargar('pag2.html')">pagina 2</a>
+
+<div id="principal"></div>
+
+</body>
+</html>
