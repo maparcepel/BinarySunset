@@ -1,6 +1,15 @@
 .naranja{
     color:#ca6238;
 }
+.bgnaranja{
+    background-color: #ca6238;
+}
+.colortextos{
+    color:#f1ede3;
+}
+.rojo{
+    color:red;
+}
 /*MENU*/
 nav{
     background: none !important;
@@ -64,3 +73,13 @@ body{
 }
 
 /*ARTISTES*/
+
+
+
+/*CONTACTE*/
+#contacte input[type="text"], input[type="email"]{
+    background-color:#f1ede3;
+}
+#contacte textarea{
+    background-color:#f1ede3;
+}
