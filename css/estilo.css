@@ -86,7 +86,6 @@ body{
 
 /*LOGIN*/
 
-/*#login #logo_mixatron{
-    max-width: 60%;
-
-}*/
+#login input[type="text"]{
+    background-color:#f1ede3;
+}
