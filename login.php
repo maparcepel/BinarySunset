@@ -8,6 +8,9 @@
         <title>Login</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link  rel="shortcut icon"  href="img/favicon.ico">
+        <link  href="http://binarysunsetestudio.com/img/iconomicro.jpg"  rel="image_src">
+        <meta  property="og:image"  content="http://binarysunsetestudio.com/img/iconomicro.jpg">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
@@ -23,35 +26,37 @@
                 </div>
  
             </div>
-            
-            <div class="row">
-                <div class="col-sm-12 col-md-6 mt-5 d-flex justify-content-center img">
-                    <img id="logo_mixatron" class="img-fluid w-75" src="img/logo_mixatron.png" alt="Logo Mixatron">
-                </div>
-                <div class="col-sm-12 col-md-6 mt-5">
-                    <div>
-                    
+            <section >
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 mt-5 d-flex justify-content-center img">
+                        <img id="logo_mixatron" class="img-fluid w-75 h-75" src="img/logo_mixatron.png" alt="Logo Mixatron">
                     </div>
-                    <span id="respuesta"></span>
-                    <form  method="post"  >
-                        <div class="form-group">
-                            <label for="idusuario">Usuario<span class="rojo">*</span><span id="error_usuario"></span></label>
-                            <input type="text" class="form-control form-control-sm" id="idusuario" name="usuario" data-rule="required" data-msg=" Escribe tu usuario">
+                    <div class="col-sm-12 col-md-6 mt-5">
+                        <div>
+
                         </div>
-                        <div class="form-group">
-                            <label for="idpassword">Contraseña<span class="rojo">*</span><span id="error_password"></span></label>
-                            <input type="text" class="form-control form-control-sm" id="idpassword" name="password" data-rule="required" data-msg=' Escribe tu contraseña'>
-                        </div>
-                        <div class="form-group">
-                            <label for="idboton"></label>
-                            <input type="submit" class="form-control form-control-sm bgnaranja colortextos w-25" id="idboton" name="submit">
-                        </div>
-                        
-                        
-                        
-                    </form>
+                        <span id="respuesta"></span>
+                        <form  method="post"  class="pr-4 pl-4">
+                            <div class="form-group">
+                                <label for="idusuario">Usuario<span class="rojo">*</span><span id="error_usuario"></span></label>
+                                <input type="text" class="form-control form-control-sm " id="idusuario" name="usuario" data-rule="required" data-msg=" Escribe tu usuario">
+                            </div>
+                            <div class="form-group">
+                                <label for="idpassword">Contraseña<span class="rojo">*</span><span id="error_password"></span></label>
+                                <input type="text" class="form-control form-control-sm" id="idpassword" name="password" data-rule="required" data-msg=' Escribe tu contraseña'>
+                            </div>
+                            <div class="form-group">
+                                <label for="idboton"></label>
+                                <input type="submit" class="form-control form-control-sm bgnaranja colortextos w-25" id="idboton" name="submit">
+                            </div>
+                            <a href="recuperacion_password.php">He olvidado mi contraseña</a>
+
+
+
+                        </form>
+                    </div>
                 </div>
-            </div>
+            </section>
         </div>
         
         

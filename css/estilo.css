@@ -89,3 +89,10 @@ body{
 #login input[type="text"]{
     background-color:#f1ede3;
 }
+#login a{
+    color:#f1ede3;
+}
+#login section{
+    background-image: url(../img/mi_fondo.png);
+    height: 50%;
+}
