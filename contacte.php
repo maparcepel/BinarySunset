@@ -34,18 +34,19 @@
                     <div>
                     
                     </div>
-                    <form  method="post" action="">
+                    <span id="respuesta"></span>
+                    <form  method="post"  >
                         <div class="form-group">
-                            <label for="idnombre">Nombre<span class="rojo">*</span><span class="rojo"></span><span id="error_nombre"></span></label>
-                            <input type="text" class="form-control form-control-sm" id="idnombre" name="nombre" data-rule="required" data-msg="Debes escribir tu nombre">
+                            <label for="idnombre">Nombre<span class="rojo">*</span><span id="error_nombre"></span></label>
+                            <input type="text" class="form-control form-control-sm" id="idnombre" name="nombre" data-rule="required" data-msg=" Escribe tu nombre">
                         </div>
                         <div class="form-group">
-                            <label for="idemail">Email<span class="rojo">*</span><span class="rojo"></span><span id="error_email"></span></label>
-                            <input type="text" class="form-control form-control-sm" id="idemail" name="email" data-rule="email" data-msg='el formato no es valido'>
+                            <label for="idemail">Email<span class="rojo">*</span><span id="error_email"></span></label>
+                            <input type="text" class="form-control form-control-sm" id="idemail" name="email" data-rule="email" data-msg=' Escribe un email válido'>
                         </div>
                         <div class="form-group">
-                            <label for="idcomentario">Comentario<span class="rojo">*</span><span class="rojo"></span><span id="error_comentario"></label>
-                            <textarea  class="form-control form-control-sm" id="idcomentario" rows="4" maxlength="500" name="comentario" data-rule="required" data-msg="Debes escribir un comentario"></textarea>
+                            <label for="idcomentario">Comentario<span class="rojo">*</span><span id="error_comentario"></label>
+                            <textarea  class="form-control form-control-sm" id="idcomentario" rows="4" maxlength="500" name="comentario" data-rule="required" data-msg="Escribe un comentario"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="idboton"></label>

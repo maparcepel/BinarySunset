@@ -6,7 +6,7 @@
     $erroremail="";
     $errorcomentario="";
     require("funciones.php");
-    require("email/funcionespass.php");
+    require("email/funcionesEmail.php");
 
        
 ?>
