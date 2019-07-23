@@ -44,7 +44,7 @@
                         </div>
                         <div class="form-group">
                             <label for="idboton"></label>
-                            <input type="submit" class="form-control form-control-sm bgnaranja colortextos" id="idboton" name="submit">
+                            <input type="submit" class="form-control form-control-sm bgnaranja colortextos w-25" id="idboton" name="submit">
                         </div>
                         
                         
