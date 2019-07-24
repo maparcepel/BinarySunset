@@ -30,108 +30,13 @@
             </div>
             
             <section >
-                <div class="row">
-                    <div class="col mt-5 d-flex justify-content-center img">
-                                                <!--Accordion wrapper-->
+
+                <div class="row ">
+                    <div class="col mt-5 d-flex justify-content-center">
                         <div class="accordion md-accordion" id="accordionEx1" role="tablist" aria-multiselectable="true">
-
+                        <h5 class="naranja mb-3">Projectes:</h5>
                           <!-- Accordion card cambiar collapse1x3 y heading1x2-->
-<!--                          <div class="card">
 
-                             Card header 
-                            <div class="card-header" role="tab" id="heading1">
-                              <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapse1"
-                                aria-expanded="false" aria-controls="collapse1">
-                                <h5 class="mb-0">
-                                  Collapsible Group Item #1 <i class="fas fa-angle-down rotate-icon"></i>
-                                </h5>
-                              </a>
-                            </div>
-
-                             Card body 
-                            <div id="collapse1" class="collapse" role="tabpanel" aria-labelledby="heading1"
-                              data-parent="#accordionEx1">
-                              <div class="card-body">
-                                1111
-                              </div>
-                            </div>
-
-                          </div>
-                           Accordion card 
-                             Accordion card 
-                          <div class="card">
-
-                             Card header 
-                            <div class="card-header" role="tab" id="heading2">
-                              <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapse2"
-                                aria-expanded="false" aria-controls="collapse2">
-                                <h5 class="mb-0">
-                                  Collapsible Group Item #2 <i class="fas fa-angle-down rotate-icon"></i>
-                                </h5>
-                              </a>
-                            </div>
-
-                             Card body 
-                            <div id="collapse2" class="collapse" role="tabpanel" aria-labelledby="heading2"
-                              data-parent="#accordionEx1">
-                              <div class="card-body">
-                                222
-                              </div>
-                            </div>
-
-                          </div>-->
-                          <!-- Accordion card -->
-
-<!--                           Accordion card 
-                          <div class="card">
-
-                             Card header 
-                            <div class="card-header" role="tab" id="headingTwo2">
-                              <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapseTwo21"
-                                aria-expanded="false" aria-controls="collapseTwo21">
-                                <h5 class="mb-0">
-                                  Collapsible Group Item #2 <i class="fas fa-angle-down rotate-icon"></i>
-                                </h5>
-                              </a>
-                            </div>
-
-                             Card body 
-                            <div id="collapseTwo21" class="collapse" role="tabpanel" aria-labelledby="headingTwo21"
-                              data-parent="#accordionEx1">
-                              <div class="card-body">
-                                2222
-                              </div>
-                            </div>
-
-                          </div>
-                           Accordion card 
-
-                           Accordion card 
-                          <div class="card">
-
-                             Card header 
-                            <div class="card-header" role="tab" id="headingThree31">
-                              <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapseThree31"
-                                aria-expanded="false" aria-controls="collapseThree31">
-                                <h5 class="mb-0">
-                                  Collapsible Group Item #3 <i class="fas fa-angle-down rotate-icon"></i>
-                                </h5>
-                              </a>
-                            </div>
-
-                             Card body 
-                            <div id="collapseThree31" class="collapse" role="tabpanel" aria-labelledby="headingThree31"
-                              data-parent="#accordionEx1">
-                              <div class="card-body">
-                                3333
-                              </div>
-                            </div>
-
-                          </div>
-                           Accordion card 
-
-                        </div>
-                         Accordion wrapper -->
 
                     </div>
                 </div>

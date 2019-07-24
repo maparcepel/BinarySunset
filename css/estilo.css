@@ -115,9 +115,13 @@ body{
     background-color: transparent !important;
     border-bottom:1px solid gray;
 }
-#projectes_admin .accordion {
+#projectes_admin .card:nth-of-type(1) {
     border-top:1px solid gray;
 }
+
+/*#projectes_admin .accordion {
+    border-top:1px solid gray;
+}*/
 #projectes_admin a {
     color:#f1ede3 !important;
     text-decoration:none !important; 
