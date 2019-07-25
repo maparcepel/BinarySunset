@@ -10,6 +10,106 @@
 .rojo{
     color:red;
 }
+
+/*INICIO*/
+#inici #posicion{
+    position: relative;
+}
+#inici #logo{
+    position: absolute;
+    z-index:999;
+    right:0;
+    width:35%;
+    height:auto;
+}
+
+#inici #menu_inici{
+    height:89px;
+    position: absolute;
+    z-index:998;
+}
+/*#cf {
+  position:relative;
+  margin:0 auto;
+}*/
+
+/*#cf img {
+  position:relative;
+  left:0;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+}
+  @keyframes cf3FadeInOut {
+  0% {
+  opacity:1;
+}
+45% {
+opacity:1;
+}
+55% {
+opacity:0;
+}
+100% {
+opacity:0;
+}
+}
+
+#cf img.top {
+animation-name: cf3FadeInOut;
+animation-timing-function: ease-in-out;
+animation-iteration-count: infinite;
+animation-duration: 9s;
+animation-direction: alternate;
+}*/
+
+/*MENU INICI*/
+nav{
+    background: none !important;
+}
+#menu_inici{
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-size: 1.4rem;
+    background-image: url("../img/inici_menu_iconos.png");
+    background-repeat: no-repeat;
+    color: #456966 !important;
+}
+@media (max-width: 991px) {
+    #menu_inici{
+        background-image: url("../img/menu_iconos_transparente.png");
+        background-repeat: no-repeat;
+    }
+    #menu_inici li{
+        background-color: rgb(65,145,138,0.5);
+        padding-left: 5px;
+    }
+}
+
+#menu_inici li{
+        background-color: none;
+}
+#menu_inici .navbar-light .navbar-nav .nav-link {
+    color: #456966 !important;
+}
+#menu_inici a{
+    padding: 0px;
+    margin:0px 20px 0px 0px;
+}
+#menu_inici li:last-of-type a{
+    margin-right: 0px;
+}
+#menu_inici ul{
+    border-bottom: 1px solid #f1ede3;
+    border-top: 1px solid #f1ede3;
+}
+#menu_inici button{
+    border:1px solid #f1ede3;
+}
+#menu_inici button:link{
+    border:1px solid #f1ede3;
+}
+
 /*MENU*/
 nav{
     background: none !important;
@@ -30,7 +130,7 @@ nav{
 #menu li{
         background-color: none;
 }
-.navbar-light .navbar-nav .nav-link {
+#menu .navbar-light .navbar-nav .nav-link {
     color: #f1ede3 !important;
 }
 #menu a{
@@ -92,13 +192,7 @@ body{
 #login a{
     color:#f1ede3;
 }
-#login body{
-    height:100%;
-    background-color: #2a2723;
-    background-image:  url(../img/mi_fondo.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-}
+
 
 /*PROJECTES ADMIN*/
 #projectes_admin body{
@@ -133,7 +227,7 @@ body{
 
 /*PROJECTE USUARI*/
 #projecte_usuari .container-fluid{
-    background-image:  url(../img/mi_fondo.jpg);
+    background-color:rgba(0, 0, 0, 0.3);
     border-bottom:1px solid gray;
 }
 #projecte_usuari .header_mix{
