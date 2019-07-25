@@ -21,10 +21,10 @@
         <div class="container">
             <div class="row mb-5 pt-2">
                 <div class="col-6 " >
-                    <img class="img-fluid mt-2 header_mix" src="img/logo_mixatron.png" alt="Logo Mixatron">
+                    <img class="img-fluid mt-4 header_mix" src="img/logo_mixatron.png" alt="Logo Mixatron">
                 </div>
                 <div class="col-6   ">
-                     <img class="img-fluid float-right mt-2  header_mix" src="img/logo2.png" alt="Logo Binary Sunset">
+                     <img class="img-fluid float-right mt-4  header_mix" src="img/logo2.png" alt="Logo Binary Sunset">
                 </div>
  
             </div>
