@@ -119,9 +119,6 @@ body{
     border-top:1px solid gray;
 }
 
-/*#projectes_admin .accordion {
-    border-top:1px solid gray;
-}*/
 #projectes_admin a {
     color:#f1ede3 !important;
     text-decoration:none !important; 
@@ -132,4 +129,25 @@ body{
 }
 #projectes_admin .card-body {
     padding-top:0px !important;
+}
+
+/*PROJECTE USUARI*/
+#projecte_usuari .container-fluid{
+    background-image:  url(../img/mi_fondo.jpg);
+    border-bottom:1px solid gray;
+}
+#projecte_usuari .header_mix{
+    height:130px;
+}
+#projecte_usuari a {
+    color:#f1ede3 !important;
+    text-decoration:none !important; 
+}
+#projecte_usuari ul {
+    list-style: none;
+}
+#projecte_usuari li {
+    border-bottom:1px solid gray;
+    padding-top: 15px;
+    padding-bottom: 5px;
 }
