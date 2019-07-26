@@ -18,18 +18,18 @@
 
     </head>
     <body>
-        <div class="container">
-            <div class="row mb-5 pt-2">
-                <div class="col-6 " >
-                    <img class="img-fluid mt-4 header_mix" src="img/logo_mixatron.png" alt="Logo Mixatron">
+        <div class="container-fluid">
+            <div class="row pb-5 pt-5 ">
+                <div class="col-6 text-center" >
+                    <img class="img-fluid header_mix" src="img/logo_mixatron.png" alt="Logo Mixatron">
                 </div>
-                <div class="col-6   ">
-                     <img class="img-fluid float-right mt-4  header_mix" src="img/logo2.png" alt="Logo Binary Sunset">
+                <div class="col-6 text-center">
+                     <img class="img-fluid header_mix" src="img/logo2.png" alt="Logo Binary Sunset">
                 </div>
- 
             </div>
+        </div>
             
-            <section >
+            <section class="container" >
 
                 <div class="row ">
                     <div class="col mt-5 d-flex justify-content-center">
@@ -37,7 +37,7 @@
                         <h5 class="naranja mb-3">Projectes:</h5>
                           <!-- Accordion card cambiar collapse1x3 y heading1x2-->
 
-
+                          
                     </div>
                 </div>
             </section>

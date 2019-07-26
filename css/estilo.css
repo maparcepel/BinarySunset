@@ -195,12 +195,9 @@ body{
 
 
 /*PROJECTES ADMIN*/
-#projectes_admin body{
-    height:100%;
-    background-color: #2a2723;
-    background-image:  url(../img/mi_fondo.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+#projectes_admin .container-fluid{
+    background-color:rgba(0, 0, 0, 0.3);
+    border-bottom:1px solid gray;
 }
 #projectes_admin .header_mix{
     height:130px;
@@ -224,7 +221,10 @@ body{
 #projectes_admin .card-body {
     padding-top:0px !important;
 }
-
+#projectes_admin .accordion img{
+    width: 20px;
+    height:auto;
+}
 /*PROJECTE USUARI*/
 #projecte_usuari .container-fluid{
     background-color:rgba(0, 0, 0, 0.3);
