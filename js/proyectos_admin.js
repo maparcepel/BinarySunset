@@ -19,7 +19,9 @@
 //ACCION DEL BOTON AGREGAR CANCION
                 $('#agregar_cancion_' + i   ).click(function(event){
                     event.preventDefault();
-                    console.log($(this).attr('data-proyecto'));
+//                    console.log($(this).attr('data-proyecto'));
+                    input_texto = $('<input id="nueva_cancion_' + i + '" class="form-control form-control-sm w-75 mt-2 d-inline" type="text"  size="10"><a href=""><img class="ml-3"  src="img/boton_ir.png" alt="Agregar nueva canción"></a> ');
+                    $('#agregar_cancion_' + i   ).replaceWith(input_texto.hide().fadeIn('slow'));
                 });
                i++;
              });
