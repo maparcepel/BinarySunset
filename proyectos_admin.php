@@ -5,7 +5,7 @@
 
 <html id="projectes_admin">
     <head>
-        <title>Login</title>
+        <title>Projectes</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link  rel="shortcut icon"  href="img/favicon.ico">
@@ -35,13 +35,14 @@
                     <div class="col mt-5 d-flex justify-content-center">
                         <div class="accordion md-accordion" id="accordionEx1" role="tablist" aria-multiselectable="true">
                         <h5 class="naranja mb-3">Projectes:</h5>
-                          <!-- Accordion card cambiar collapse1x3 y heading1x2-->
-
-                          
-                    </div>
+                          <!-- Accordion card cambiar collapse1x3 y heading1x2-->  
+                    </div>   
+                </div>
+                <div id="respuesta" class="col-12 mt-2 text-center naranja">
+                       <p>El proyecto ya existe!</p>
                 </div>
             </section>
-        </div>
+
         
         
         

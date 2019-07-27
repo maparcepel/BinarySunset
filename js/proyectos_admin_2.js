@@ -17,18 +17,18 @@
 
  //INSERTA CANCIONES              
                 for(var j = 1; j < proyectos[i].length; j++){
-                  item += '<p><a href="mixatron/mixatron_admin.php?proyecto=' + proyectos[i][0]  + '&cancion=' + proyectos[i][j] + '">' + proyectos[i][j] + '</a></p>'; 
+                  item += '<p><a href="mixatron/mixatron_admin.php?var proyecto=' + proyectos[i][0]  + '&var cancion=' + proyectos[i][j] + '">' + proyectos[i][j] + '</a></p>'; 
                }
 //INSERTA BOTON PARA AGREGAR CANCION
                 item += '<p ><a   id="agregar_cancion_' + i + '" href=""  data-proyecto="' + proyectos[i][0] + '"><img  src="img/boton_agregar.png" alt="Agregar nueva canción"></a>'
- //INSERTA INPUT NUEVA CANCION              
-                item += '<span id="input_cancion_' + i + '" class="d-none" ><input class="form-control form-control-sm w-75 mr-0 d-inline" type="text"  size="10"><a class="nueva_cancion" data-proyecto="' + proyectos[i][0] + '" href=""><img class="float-right"  src="img/boton_ir.png" alt="Agregar nueva canción"></a> </span></p>';
+ //INSERTA INPUT               
+                item += '<span id="input_cancion_' + i + '" class="d-none" ><input class="form-control form-control-sm w-75 mr-0 d-inline" type="text"  size="10"><a href=""><img class="float-right"  src="img/boton_ir.png" alt="Agregar nueva canción"></a> </span></p>';
                 item += '</div></div></div>';
                 acordeon.append(item);        
 
 
                 
-//COMPORTAMIENTO DEL BOTON PARA INSERTAR INPUT NUEVA CANCION
+//COMPORTAMIENTO DEL BOTON AGREGAR CANCION
                 $('#agregar_cancion_' + i ).click(function(event){
                     event.preventDefault();
                     console.log($(this));
@@ -104,35 +104,6 @@
             }
                     
         }); 
- //COMPORTAMIENTO DEL BOTON INSERTAR NUEVA CANCION
-        $(document).on("click", 'a.nueva_cancion', function(ev){
-            ev.preventDefault();
-            
-            $proyecto_cancion = $(this).attr('data-proyecto');
-//            console.log($proyecto_cancion);
-            $nombre_cancion = $(this).prev().val();
-//            console.log($nombre_cancion);
-                $.ajax({
-                            url: 'proyectos_agregar_cancion.php',
-                            dataType: "json",
-                            type: 'post',
-                            data: { "proyecto": $proyecto_cancion,
-                            "nueva_cancion": $nombre_cancion},
-                            success: function(respuesta) {
-                                console.log(respuesta);
-                                if (respuesta == 'ok'){
-                                    window.location.href = 'proyectos_admin.php';
-                                }else{
-                                    
-                                        $('#respuesta').find('p').css('display','block');  
-                                    
-                                    
-                                }
-                                
-                           }
-                       });
-            
-                    
-        });       
+       
  });
 

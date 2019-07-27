@@ -221,10 +221,28 @@ body{
 #projectes_admin .card-body {
     padding-top:0px !important;
 }
-#projectes_admin .accordion img{
-    width: 20px;
-    height:auto;
+
+#projectes_admin #respuesta p{
+    display: none;
 }
+#projectes_admin .accordion{
+    width:230px;
+}
+
+/*PROJECTES ADMIN  2 */
+#projectes_admin2 .container-fluid{
+    background-color:rgba(0, 0, 0, 0.3);
+    border-bottom:1px solid gray;
+}
+#projectes_admin2 .header_mix{
+    height:100px;
+}
+
+
+
+
+
+
 /*PROJECTE USUARI*/
 #projecte_usuari .container-fluid{
     background-color:rgba(0, 0, 0, 0.3);
