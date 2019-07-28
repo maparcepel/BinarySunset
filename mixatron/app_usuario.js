@@ -333,7 +333,7 @@ function showNote(region) {
     if (!showNote.el) {
         showNote.el = document.querySelector('#subtitle');
     }
-    showNote.el.textContent = region.data.note || '–';
+//    showNote.el.textContent = region.data.note || '–';
 }
 
 /**

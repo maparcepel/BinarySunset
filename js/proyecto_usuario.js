@@ -7,7 +7,7 @@
             success: function(canciones) {
                 var i = 0;
             $.each(canciones, function() {
-               item = '<li><h6><a href="mixatron/mixatron_usuario.php?var cancion=' + canciones[i] + '">'+ canciones[i] + '</a></h6></li>';
+               item = '<li><h6><a href="mixatron/mixatron_usuario.php?cancion=' + canciones[i] + '&proyecto=' + usuario + '">'+ canciones[i] + '</a></h6></li>';
                 $('#canciones').append(item);
                i++;
              });

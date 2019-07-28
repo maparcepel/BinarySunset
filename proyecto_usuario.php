@@ -1,6 +1,6 @@
 <?php
 
-    $usuario = "Celestial Bums";
+    $usuario = "Low Blows";
     echo'<script>var usuario = "' . $usuario . '"</script>';
 ?>
 
@@ -35,7 +35,7 @@
                     <div class="col mt-5  d-flex justify-content-center">
                         <ul>
                             <li><h5 class="naranja "><strong>Projecte: <?=$usuario?></strong></h5></li>    
-                            <section class="" id="canciones"></section>
+                            <span id="canciones"></span>
                         </ul>
                     </div>
                     

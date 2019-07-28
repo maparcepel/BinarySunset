@@ -15,6 +15,8 @@
         }else{
             $sql = 'INSERT INTO Canciones (nombreCancion, grupo) VALUES ("'. $nueva_cancion . '", "'. $proyecto . '")';
             mysqli_query($con,$sql) or die('Consulta fallida: ' . mysqli_error($con)); 
+            $sql = 'INSERT INTO Comentarios (nomCancion) VALUES ("'. $nueva_cancion . '")';
+            mysqli_query($con,$sql) or die('Consulta fallida: ' . mysqli_error($con)); 
             $respuesta = 'ok';
         }
                     

@@ -14,6 +14,7 @@
         }else{
             $sql = 'INSERT INTO Proyectos (grupo) VALUES ("'. $proyecto . '")';
             mysqli_query($con,$sql) or die('Consulta fallida: ' . mysqli_error($con)); 
+
             $respuesta = 'ok';
         }
                     

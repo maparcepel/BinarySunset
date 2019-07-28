@@ -12,7 +12,7 @@
     //VARIABLES PARA ENVIAR COMENTARIOS A BD DESDE APP.JS
     echo"<script>var proyecto='" . $proyecto . "'</script>";
     echo"<script>var cancion='" . $cancion . "'</script>";
-    echo"<script>var ubicacionCancion='../" . $ubicacionCancion . "'</script>";
+    echo"<script>var ubicacionCancion='../mp3/Low Blows-On the road-1564315643.mp3'</script>";
     
     //COMENTARIOS PARA CARGAR SOBRE EL AUDIO
     $sql = "SELECT idComentario, inicio, fin, comentario FROM Comentarios WHERE nomCancion = '" . $cancion . "'";

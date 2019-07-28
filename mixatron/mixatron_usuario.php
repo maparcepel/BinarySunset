@@ -1,21 +1,31 @@
 <?php
+            
     require("../funciones.php");
+    
+
+        
+        
+        
     if(isset($_GET['proyecto']) && !empty($_GET['cancion'])){   
-        $proyecto = htmlspecialchars($_GET['nuevo_proyecto'],ENT_QUOTES);
+        $proyecto = htmlspecialchars($_GET['proyecto'],ENT_QUOTES);
         $cancion = htmlspecialchars($_GET['cancion'],ENT_QUOTES);
         $con = conectarABBDD();
-        //UBICACION DE LA CANCION A CARGAR EN APP.JS
-        $sql = "SELECT ubicacion FROM Canciones WHERE grupo = '" . $proyecto . "' && nombreCancion = '" . $cancion . "' ";
+        $sql = "SELECT  nombreCancion FROM Canciones WHERE grupo = '" . $proyecto . "' && nombreCancion LIKE '" . $cancion . "%'  ORDER BY nombreCancion DESC LIMIT 1";
         $resultat = mysqli_query($con,$sql) or die("Consulta fallida:" . mysqli_error($con));
         $registre = mysqli_fetch_array($resultat, MYSQLI_ASSOC);
+        $cancion_mix = $registre['nombreCancion'];
+ //SELECCIONA EL ULTIMO MIX DE LA CANCION       
+        $sql = "SELECT ubicacion FROM Canciones WHERE grupo = '" . $proyecto . "' && nombreCancion = '" . $cancion_mix . "'";
+        $resultat = mysqli_query($con,$sql) or die("Consulta fallida:" . mysqli_error($con));
+        $registre = mysqli_fetch_array($resultat, MYSQLI_ASSOC);
+ //UBICACION DE LA CANCION A CARGAR EN APP_ADMIN.JS       
         $ubicacionCancion = $registre['ubicacion'];
-        //VARIABLES PARA ENVIAR COMENTARIOS A BD DESDE APP.JS
+//VARIABLES PARA ENVIAR COMENTARIOS A BD DESDE APP_ADMIN.JS
         echo"<script>var proyecto='" . $proyecto . "'</script>";
-        echo"<script>var cancion='" . $cancion . "'</script>";
-        echo"<script>var ubicacionCancion='../" . $ubicacionCancion . "'</script>";
-
-        //COMENTARIOS PARA CARGAR SOBRE EL AUDIO
-        $sql = "SELECT idComentario, inicio, fin, comentario FROM Comentarios WHERE nomCancion = '" . $cancion . "'";
+        echo"<script>var cancion='" . $cancion_mix . "'</script>";
+        echo"<script>var ubicacionCancion='" . $ubicacionCancion . "'</script>";
+//COMENTARIOS PARA CARGAR SOBRE EL AUDIO
+        $sql = "SELECT idComentario, inicio, fin, comentario FROM Comentarios WHERE nomCancion = '" . $cancion_mix . "'"; 
         $resultat = mysqli_query($con,$sql) or die("Consulta fallida:" . mysqli_error($con));
         $num_filas = $resultat->num_rows;
         $i = 1;
@@ -58,7 +68,6 @@
     <body>
         
         <div class="container-fluid mb-3">
-
             <div class="row pb-3 pt-3 ">
                 <div class="col-6 text-center" >
                     <img class="img-fluid header_mix" src="../img/logo_mixatron.png" alt="Logo Mixatron">
@@ -69,13 +78,18 @@
             </div>
         </div>
          <div class="container">
-
-             <h5 class="naranja"><?=$proyecto . " - " . $cancion?></h5>
+             <h5 class="naranja"><?=$proyecto . " - " . $cancion_mix?></h5>
             <?php
-
-                include('player_usuario.html');
+                if($ubicacionCancion == null){
+                    echo "nop";
+                }else{
+                   include('player_usuario.html'); 
+                }
+                
             ?>
             <p id="respuesta"></p>
+            
+            
          </div>
          
     </body>

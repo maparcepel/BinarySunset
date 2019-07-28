@@ -17,3 +17,20 @@ function conectarABBDD(){
             return $con;
     }
     
+        function validaFichero($fichero){
+                $resultado = null;
+                $tmp_name = $fichero['tmp_name'];
+                $error = $fichero['error'];
+                $size = $fichero['size'];
+                $max_size = 1024 * 1024 * 9;
+                $extension = $fichero['type'];
+                
+                if($error){
+                    $resultado = "Ha ocurrido un error al subir el fichero";
+                }elseif($size > $max_size){
+                    $resultado = "El tamaño subera el máximo permitido: 9mb";
+                }else if($extension != 'audio/mp3' ){
+                    $resultado = 'Sólo se permiten archivos mp3';
+                }
+                return $resultado;
+    }

@@ -14,7 +14,10 @@
        while ($registre = mysqli_fetch_array($resultat, MYSQLI_ASSOC)) {
            foreach($registre as $col_value) {
                $cancion = explode('-', $col_value);
-               $array[] = $cancion[0];
+               $cancion = $cancion[0];
+                if(!in_array($cancion, $array)){
+                    $array[] = $cancion;
+                }
            }             
        }
 //       print_r($array);
