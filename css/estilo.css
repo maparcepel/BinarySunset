@@ -28,41 +28,39 @@
     position: absolute;
     z-index:998;
 }
-/*#cf {
-  position:relative;
-  margin:0 auto;
-}*/
-
-/*#cf img {
-  position:relative;
-  left:0;
-  -webkit-transition: opacity 1s ease-in-out;
-  -moz-transition: opacity 1s ease-in-out;
-  -o-transition: opacity 1s ease-in-out;
-  transition: opacity 1s ease-in-out;
-}
-  @keyframes cf3FadeInOut {
-  0% {
-  opacity:1;
-}
-45% {
-opacity:1;
-}
-55% {
-opacity:0;
-}
-100% {
-opacity:0;
-}
+#inici #fotos {
+  position: relative;
 }
 
-#cf img.top {
-animation-name: cf3FadeInOut;
-animation-timing-function: ease-in-out;
-animation-iteration-count: infinite;
-animation-duration: 9s;
-animation-direction: alternate;
-}*/
+#inici #fotos img {
+        position: absolute;
+        width:97%;
+        height: auto;
+}
+
+#inici #fotos .top {
+	animation-name: fade;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	animation-duration: 8s;
+	animation-direction: alternate;
+}
+
+@keyframes fade {
+	0% {
+		opacity: 1;
+	}
+	25% {
+		opacity: 1;
+	}
+	75% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
 
 /*MENU INICI*/
 nav{
