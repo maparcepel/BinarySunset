@@ -2,8 +2,7 @@
             
     require("../funciones.php");
    $error_fichero ='';
-//    !empty($_REQUEST["audio"])
-//    && isset($_FILES["audio"]) &&($_SERVER["REQUEST_METHOD"] == "POST")
+
    
      if(isset($_REQUEST["submit"]) && isset($_FILES["audio"]) &&($_SERVER["REQUEST_METHOD"] == "POST")){
             $proyecto = htmlspecialchars($_GET['proyecto'],ENT_QUOTES);
