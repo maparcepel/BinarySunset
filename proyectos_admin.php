@@ -1,5 +1,15 @@
 <?php
+        session_start();
 
+        require("funciones.php");
+        
+        if(isset($_SESSION["login"]) && $_SESSION["login"] = true){
+               $usuario =  $_SESSION["usuario"];
+        }elseif(isset($_COOKIE["usuario"]) && $_isset(COOKIE["password"])){
+            validaCookie($_COOKIE["usuario"], $_COOKIE["password"]);
+        }else{
+            header('Location: login.php');
+        }
 
 ?>
 
@@ -25,6 +35,11 @@
                 </div>
                 <div class="col-6 text-center">
                      <img class="img-fluid header_mix" src="img/logo2.png" alt="Logo Binary Sunset">
+                </div>
+            </div>
+            <div class="row" >
+                <div id="logout" class="col-12 text-right ">
+                    <a href="cerrar_sesion.php">LOGOUT</a>
                 </div>
             </div>
         </div>

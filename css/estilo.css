@@ -1,3 +1,4 @@
+
 .naranja{
     color:#ca6238;
 }
@@ -11,15 +12,18 @@
     color:red;
 }
 
+
 /*INICIO*/
 #inici #posicion{
     position: relative;
 }
+
 #inici #logo{
     position: absolute;
     z-index:999;
     right:20px;
-    width:35%;
+    top:-90px;
+    width:30%;
     height:auto;
 }
 
@@ -134,7 +138,7 @@ nav{
 #menu a{
     padding: 0px;
     margin:0px 20px 0px 0px;
-    color:#f1ede3;
+
 }
 
 #menu li:last-of-type a{
@@ -191,7 +195,7 @@ body{
 #login input[type="text"]{
     background-color:#f1ede3;
 }
-#login a{
+#login form a{
     color:#f1ede3;
 }
 
@@ -199,7 +203,7 @@ body{
 /*PROJECTES ADMIN*/
 #projectes_admin .container-fluid{
     background-color:rgba(0, 0, 0, 0.3);
-    border-bottom:1px solid gray;
+
 }
 #projectes_admin .header_mix{
     height:130px;
@@ -239,7 +243,7 @@ body{
 /*PROJECTES ADMIN  2 */
 #projectes_admin2 .container-fluid{
     background-color:rgba(0, 0, 0, 0.3);
-    border-bottom:1px solid gray;
+
 }
 #projectes_admin2 .header_mix{
     height:100px;
@@ -258,7 +262,7 @@ body{
 /*PROJECTE USUARI*/
 #projecte_usuari .container-fluid{
     background-color:rgba(0, 0, 0, 0.3);
-    border-bottom:1px solid gray;
+
 }
 #projecte_usuari .header_mix{
     height:130px;
@@ -274,4 +278,17 @@ body{
     border-bottom:1px solid gray;
     padding-top: 15px;
     padding-bottom: 5px;
+}
+
+#logout{
+    border-top: 1px solid #8a5039;
+    border-bottom: 1px solid #8a5039;
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-size: 1rem;
+}
+#logout a{
+    color: #bdb8ad !important;
+}
+#logout a:hover{
+    color: #f1ede3 !important;
 }

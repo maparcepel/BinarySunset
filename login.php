@@ -1,7 +1,20 @@
-<?php
+ <?php
+        session_start();
+//        usuario:admin - pass:1234
+//        usuario:Low Blows - pass:1234
+ 
+        require("funciones.php");
+        if(isset($_POST["submit"])){
+            $error=comprueba_password ($_POST["usuario"], md5($_POST["password"]), $_POST["recordar"]);
+        }    
 
-
-?>
+//REVISO SI HAY SESION O COOKIE PARA REDIRECCIONAR
+        if(isset($_SESSION["login"]) && $_SESSION["login"] = true){
+               validaSesion();
+        }elseif(isset($_COOKIE["usuario"]) && $_isset(COOKIE["password"])){
+            validaCookie($_COOKIE["usuario"], $_COOKIE["password"]);
+        }
+    ?>
 
 <html id="login">
     <head>
@@ -28,8 +41,10 @@
             </div>
             <section >
                 <div class="row">
-                    <div class="col-sm-12 col-md-6 mt-5 d-flex justify-content-center img">
-                        <img id="logo_mixatron" class="img-fluid w-75 h-75" src="img/logo_mixatron.png" alt="Logo Mixatron">
+                    <div class="col-sm-12 col-md-6 mt-5 text-center img ">
+                        <img id="logo_mixatron"  src="img/logo_mixatron.png" alt="Logo Mixatron">
+                        <h6 class="font-italic mt-2">Una herramienta para optimizar</h6>
+                        <h6 class="font-italic">el feedback entre músicos y técnico de sonido</h6>
                     </div>
                     <div class="col-sm-12 col-md-6 mt-5">
                         <div>
@@ -43,11 +58,15 @@
                             </div>
                             <div class="form-group">
                                 <label for="idpassword">Contraseña<span class="rojo">*</span><span id="error_password"></span></label>
-                                <input type="text" class="form-control form-control-sm" id="idpassword" name="password" data-rule="required" data-msg=' Escribe tu contraseña'>
+                                <input type="password" class="form-control form-control-sm" id="idpassword" name="password" data-rule="required" data-msg=' Escribe tu contraseña'>
+                            </div>
+                            <div class="form-group">
+                                <label for="idrecordar"></label>
+                                <input type='checkbox' name='recordar' id="idrecordar"> <span>Recuérdame en este equipo</span>
                             </div>
                             <div class="form-group">
                                 <label for="idboton"></label>
-                                <input type="submit" class="form-control form-control-sm bgnaranja colortextos w-25" id="idboton" name="submit">
+                                <input type="submit" class="form-control form-control-sm bgnaranja colortextos w-25 mb-2" id="idboton" name="submit"><span class="rojo"><?=$error?></span>
                             </div>
                             <a href="recuperacion_password.php">He olvidado mi contraseña</a>
 

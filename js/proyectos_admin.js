@@ -8,38 +8,39 @@
             success: function(proyectos) {
                var i = 0; 
             $.each(proyectos, function() {
- 
-               item = '<div class="card"><div class="card-header" role="tab" id="heading' + i + '">';         
-               item += '<a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapse' + i + '"aria-expanded="false" aria-controls="collapse' + i + '">';         
-//INSERTA BOTON BORRAR PROYECTO               
-                item += '<h5 class="mb-0 d-inline">' + proyectos[i][0] + ' <i class="fas fa-angle-down rotate-icon"></i></h5></a><a href="" class="borra_proyecto float-right" data-proyecto="' + proyectos[i][0] + '" title="Borrar proyecto"><img src="img/boton_borrar.png"></a></div>';         
-               item += '<div id="collapse' + i + '" class="collapse" role="tabpanel" aria-labelledby="heading' + i + '"data-parent="#accordionEx1"><div class="card-body pb-0 pr-0">';         
+                if(proyectos[i][0] !== 'admin'){
+                    item = '<div class="card"><div class="card-header" role="tab" id="heading' + i + '">';         
+                    item += '<a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapse' + i + '"aria-expanded="false" aria-controls="collapse' + i + '">';         
+     //INSERTA BOTON BORRAR PROYECTO               
+                     item += '<h5 class="mb-0 d-inline">' + proyectos[i][0] + ' <i class="fas fa-angle-down rotate-icon"></i></h5></a><a href="" class="borra_proyecto float-right" data-proyecto="' + proyectos[i][0] + '" title="Borrar proyecto"><img src="img/boton_borrar.png"></a></div>';         
+                    item += '<div id="collapse' + i + '" class="collapse" role="tabpanel" aria-labelledby="heading' + i + '"data-parent="#accordionEx1"><div class="card-body pb-0 pr-0">';         
 
- //INSERTA CANCIONES              
-                for(var j = 1; j < proyectos[i].length; j++){
-                  item += '<p><a href="mixatron/mixatron_admin.php?proyecto=' + proyectos[i][0]  + '&cancion=' + proyectos[i][j] + '">' + proyectos[i][j] + '</a></p>'; 
-               }
-//INSERTA BOTON PARA AGREGAR CANCION
-                item += '<p ><a   id="agregar_cancion_' + i + '" href=""  data-proyecto="' + proyectos[i][0] + '"><img  src="img/boton_agregar.png" alt="Agregar nueva canción"></a>'
- //INSERTA INPUT NUEVA CANCION              
-                item += '<span id="input_cancion_' + i + '" class="d-none" ><input class="form-control form-control-sm w-75 mr-0 d-inline" type="text"  size="10"><a class="nueva_cancion" data-proyecto="' + proyectos[i][0] + '" href=""><img class="float-right"  src="img/boton_ir.png" alt="Agregar nueva canción"></a> </span></p>';
-                item += '</div></div></div>';
-                acordeon.append(item);        
+      //INSERTA CANCIONES              
+                     for(var j = 1; j < proyectos[i].length; j++){
+                       item += '<p><a href="mixatron/mixatron_admin.php?proyecto=' + proyectos[i][0]  + '&cancion=' + proyectos[i][j] + '">' + proyectos[i][j] + '</a></p>'; 
+                    }
+     //INSERTA BOTON PARA AGREGAR CANCION
+                     item += '<p ><a   id="agregar_cancion_' + i + '" href=""  data-proyecto="' + proyectos[i][0] + '"><img  src="img/boton_agregar.png" alt="Agregar nueva canción"></a>'
+      //INSERTA INPUT NUEVA CANCION              
+                     item += '<span id="input_cancion_' + i + '" class="d-none" ><input class="form-control form-control-sm w-75 mr-0 d-inline" type="text"  size="10"><a class="nueva_cancion" data-proyecto="' + proyectos[i][0] + '" href=""><img class="float-right"  src="img/boton_ir.png" alt="Agregar nueva canción"></a> </span></p>';
+                     item += '</div></div></div>';
+                     acordeon.append(item);        
 
 
-                
-//COMPORTAMIENTO DEL BOTON PARA INSERTAR INPUT NUEVA CANCION
-                $('#agregar_cancion_' + i ).click(function(event){
-                    event.preventDefault();
-                    console.log($(this));
 
-//                    $(this).replaceWith();
-//                    $('#input_cancion_' + i );
-                    $(this).hide();
-                    $(this).next('span').removeClass('d-none');
-                    
-                });
-               i++;
+     //COMPORTAMIENTO DEL BOTON PARA INSERTAR INPUT NUEVA CANCION
+                     $('#agregar_cancion_' + i ).click(function(event){
+                         event.preventDefault();
+                         console.log($(this));
+
+     //                    $(this).replaceWith();
+     //                    $('#input_cancion_' + i );
+                         $(this).hide();
+                         $(this).next('span').removeClass('d-none');
+
+                     });
+                    i++;
+                }
              });
 // INSERTA BOTON PARA AGREGAR PROYECTO
                 boton1 = '<div><a  href="" id="agregar_proyecto"><img class="mt-3"  src="img/boton_agregar.png" alt="Agregar nuevo proyecto"></a></div>';

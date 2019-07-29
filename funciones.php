@@ -1,6 +1,6 @@
 <?php
 
-//MIXATRÓN
+
 
 function conectarABBDD(){
             $ip = 'formacio.obsea.es';
@@ -16,7 +16,7 @@ function conectarABBDD(){
             }
             return $con;
     }
-    
+ //VALIDA MP3   
         function validaFichero($fichero){
                 $resultado = null;
                 $tmp_name = $fichero['tmp_name'];
@@ -34,3 +34,54 @@ function conectarABBDD(){
                 }
                 return $resultado;
     }
+ //COMPRUEBA PASSWORD   
+        function comprueba_password($user, $contrasena, $recordar){
+            $con = conectarABBDD();
+            $sql = 'SELECT grupo, password FROM Proyectos WHERE grupo ="'. $user .'" AND password = "' . $contrasena . '" ' ;
+            $resultat = mysqli_query($con,$sql) or die('Consulta fallida: ' . mysqli_error($con));
+            mysqli_close($con);
+            if($resultat->num_rows == 1){
+                session_start();
+                $_SESSION["login"] = true;
+                $_SESSION["usuario"] = $user;
+                if($recordar  == true){
+                    setcookie("usuario" , $user , time()+365*24*60*60); 
+                    setcookie("password" , md5($contrasena) , time()+365*24*60*60);
+                }
+                
+                if($user == 'admin'){
+                    header('Location: proyectos_admin.php');
+                }else{
+                    header('Location: proyecto_usuario.php');
+                }
+            }else{
+               return "Usuario o contraseña incorrecta"; 
+            } 
+        }
+        
+ //VALIDA SESION       
+        function validaSesion(){
+            if($_SESSION["usuario"] == 'admin'){
+                header('Location: proyectos_admin.php');
+            }else{
+                header('Location: proyecto_usuario.php');
+            }
+        }
+ //VALIDA COOKIES
+        function validaCookies($user, $password){
+            $con = conectarABBDD();
+            $sql = 'SELECT grupo, password FROM Proyectos WHERE grupo ="'. $user .'" AND password = "' . $password . '" ' ;
+            $resultat = mysqli_query($con,$sql) or die('Consulta fallida: ' . mysqli_error($con));
+            mysqli_close($con);
+            if($resultat->num_rows == 1){
+                session_start();
+                $_SESSION["login"] = true;
+                $_SESSION["usuario"] = $user;
+                
+                if($user == 'admin'){
+                    header('Location: proyectos_admin.php');
+                }else{
+                    header('Location: proyecto_usuario.php');
+                }
+            }
+        }
