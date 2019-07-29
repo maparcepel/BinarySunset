@@ -134,7 +134,9 @@ nav{
 #menu a{
     padding: 0px;
     margin:0px 20px 0px 0px;
+    color:#f1ede3;
 }
+
 #menu li:last-of-type a{
     margin-right: 0px;
 }
