@@ -5,6 +5,7 @@
     header('Content-Type: application/json');
    
     if (isset($_POST['grupo']) && !empty($_POST['grupo'])) {
+       $array=[];
        $grupo = $_POST['grupo'];
 
        $con = conectarABBDD();

@@ -1,9 +1,11 @@
 <?php
             
     require("../funciones.php");
-    
-     if(isset($_REQUEST["submit"]) && ($_REQUEST["audio"] != null) &&($_SERVER["REQUEST_METHOD"] == "POST")){
-
+   $error_fichero ='';
+//    !empty($_REQUEST["audio"])
+//    && isset($_FILES["audio"]) &&($_SERVER["REQUEST_METHOD"] == "POST")
+   
+     if(isset($_REQUEST["submit"]) && isset($_FILES["audio"]) &&($_SERVER["REQUEST_METHOD"] == "POST")){
             $proyecto = htmlspecialchars($_GET['proyecto'],ENT_QUOTES);
             $cancion = htmlspecialchars($_GET['cancion'],ENT_QUOTES);
 //SUBIR MP3        
@@ -16,6 +18,7 @@
                     $ruta = '../mp3/' . $nombre_fichero;   
                 }else{
                     $error_fichero = $comprobacion_fichero;
+                    echo $error_fichero;
                 }
             } 
             if(empty($error_fichero)){

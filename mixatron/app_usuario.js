@@ -358,7 +358,7 @@ window.GLOBAL_ACTIONS['delete-region'] = function() {
                         'idcomentario': form.elements.idcomentario.value,
             }
         }).then(function(respuesta){
-            console.log(respuesta);
+            location.reload();
         });
 };
 

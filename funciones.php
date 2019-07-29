@@ -26,7 +26,7 @@ function conectarABBDD(){
                 $extension = $fichero['type'];
                 
                 if($error){
-                    $resultado = "Ha ocurrido un error al subir el fichero";
+                    $resultado = "Ha ocurrido un error al subir el fichero ".$error;
                 }elseif($size > $max_size){
                     $resultado = "El tamaño subera el máximo permitido: 9mb";
                 }else if($extension != 'audio/mp3' ){

@@ -6,9 +6,10 @@
             data: { "grupo":usuario},
             success: function(canciones) {
                 var i = 0;
+                console.log(canciones);
             $.each(canciones, function() {
                item = '<li><h6><a href="mixatron/mixatron_usuario.php?cancion=' + canciones[i] + '&proyecto=' + usuario + '">'+ canciones[i] + '</a></h6></li>';
-                $('#canciones').append(item);
+               $('#canciones').append(item);
                i++;
              });
             }

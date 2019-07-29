@@ -18,7 +18,7 @@
 #inici #logo{
     position: absolute;
     z-index:999;
-    right:0;
+    right:20px;
     width:35%;
     height:auto;
 }
@@ -73,7 +73,7 @@ nav{
     background-repeat: no-repeat;
     color: #456966 !important;
 }
-@media (max-width: 991px) {
+@media (max-width: 767px) {
     #menu_inici{
         background-image: url("../img/menu_iconos_transparente.png");
         background-repeat: no-repeat;
@@ -148,6 +148,8 @@ nav{
 #menu button:link{
     border:1px solid #f1ede3;
 }
+
+
 
 /*EQUPAMIENTO*/
 
@@ -226,6 +228,11 @@ body{
 #projectes_admin .accordion{
     width:230px;
 }
+#projectes_admin input[type="text"]{
+    background-color:#f1ede3;
+}
+
+
 
 /*PROJECTES ADMIN  2 */
 #projectes_admin2 .container-fluid{
@@ -235,7 +242,12 @@ body{
 #projectes_admin2 .header_mix{
     height:100px;
 }
-
+#projectes_admin2 input[type="text"]{
+    background-color:#f1ede3;
+}
+#projectes_admin2 textarea{
+    background-color:#f1ede3;
+}
 
 
 

@@ -33,9 +33,9 @@
 
                 <div class="row ">
                     <div class="col mt-5  d-flex justify-content-center">
-                        <ul>
+                        <ul  id="canciones">
                             <li><h5 class="naranja "><strong>Projecte: <?=$usuario?></strong></h5></li>    
-                            <span id="canciones"></span>
+                            
                         </ul>
                     </div>
                     

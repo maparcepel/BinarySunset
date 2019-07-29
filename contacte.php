@@ -37,7 +37,7 @@
                     <div>
                     
                     </div>
-                    <span id="respuesta"></span>
+                    <span class="naranja" id="respuesta"></span>
                     <form  method="post"  >
                         <div class="form-group">
                             <label for="idnombre">Nombre<span class="rojo">*</span><span id="error_nombre"></span></label>
