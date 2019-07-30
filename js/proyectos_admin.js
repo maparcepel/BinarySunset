@@ -51,29 +51,37 @@
                     event.preventDefault();
                     
 //ENTRADA DE NUEVO PROYECTO
-                    input_texto = $('<input id="nuevo_proyecto" class="form-control form-control-sm w-75 d-inline mt-2" type="text"  size="10"><a id="agregar_proyecto_2"href=""><img class="float-right mt-2"  src="img/boton_ir.png" alt="Agregar nuevo proyecto"></a> ');
+                    input_texto = $('<input id="nuevo_proyecto" class="form-control form-control-sm w-75 d-inline mt-2" type="text"  size="10" placeholder="Proyecto"><input id="nuevo_proyecto_email" class="form-control form-control-sm w-75 d-inline mt-2" type="text"  size="10" placeholder="Email"><a id="agregar_proyecto_2"href=""><img class="float-right mt-2"  src="img/boton_ir.png" alt="Agregar nuevo proyecto"></a> ');
+
                     $('#agregar_proyecto').replaceWith(input_texto.hide().fadeIn('slow'));
                     $('#agregar_proyecto_2').click(function(event){
                         event.preventDefault();
+                        var emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
                         $nuevo_proyecto = $('#nuevo_proyecto').val();
- //ENVIA NOMBRE NUEVO PROYECTO                       
-                        $.ajax({
-                            url: 'proyectos_agregar_proyecto.php',
-                            dataType: "json",
-                            type: 'post',
-                            data: { "nuevo_proyecto": $nuevo_proyecto},
-                            success: function(respuesta) {
-                                if (respuesta == 'ok'){
-                                    window.location.href = 'proyectos_admin.php';
-                                }else{
-                                    
-                                        $('#respuesta').find('p').css('display','block');  
-                                    
-                                    
-                                }
-                                
-                           }
-                       });
+                        $nuevo_proyecto_email = $('#nuevo_proyecto_email').val();
+ //ENVIA NOMBRE NUEVO PROYECTO           
+                        if($nuevo_proyecto !=='' && emailExp.test($nuevo_proyecto_email )){
+                            
+                            $.ajax({
+                                url: 'proyectos_agregar_proyecto.php',
+                                dataType: "json",
+                                type: 'post',
+                                data: { "nuevo_proyecto": $nuevo_proyecto,
+                                            "nuevo_proyecto_email": $nuevo_proyecto_email
+                                },
+                                success: function(respuesta) {
+                                    if (respuesta == 'ok'){
+                                        window.location.href = 'proyectos_admin.php';
+                                    }else{
+
+                                            $('#respuesta').find('p').replaceWith(respuesta);  
+
+
+                                    }
+
+                               }
+                           });
+                        }
                     });
 
                 });

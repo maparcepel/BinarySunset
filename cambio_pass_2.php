@@ -1,45 +1,13 @@
  <?php
         session_start();
         $error="";
-        require("funciones.php");
-        
-//REVISA TOKEN
-        if(isset($_GET['token'])){
-            $token=$_GET['token'];
-        }else{
-             header('Location: login.php'); 
-        }
-        $con = conectarABBDD();
-        $sql="SELECT * FROM Tokens WHERE token='" . $token . "'";
-        $resultat= mysqli_query($con,$sql) or die("Consulta fallida:" . mysqli_error($con));
-        $registre = mysqli_fetch_array($resultat, MYSQLI_ASSOC);
-        mysqli_close($con); 
-        if($resultat->num_rows != 1){
-            header('Location: login.php'); 
-            
-        }else{
-            $usuario=$registre['grupo'];
-        }
-        
-        
-        if(isset($_REQUEST["submit"])){
-           if($_POST["pass1"] ==$_POST["pass2"] ){
-                $con = conectarABBDD();
-                $sql="UPDATE Proyectos SET password='".md5($_REQUEST['pass1'])."' WHERE grupo='$usuario'";
-                $resultat= mysqli_query($con,$sql) or die("Consulta fallida:" . mysqli_error($con));
-               
-               mysqli_close($con);  
-                header('Location: cambio_pass_2.php'); 
-           }else{
-               $error="Las 2 contraseñas deben ser iguales";
-           }
-         }
+   
 
     ?>
 
 <html id="login">
     <head>
-        <title>Cambio de contraseña</title>
+        <title>Login</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link  rel="shortcut icon"  href="img/favicon.ico">
@@ -65,18 +33,8 @@
                    
                     <div class="col mt-5 d-flex justify-content-center">
 
-                        <div id="texto" class="d-flex justify-content-center pt-4" >
+                        <p>Tu contraseña se ha creado correctamente.<br>Dirígete a la página de login para entrar.</p>
                             
-                            <form  action='' method='POST'>
-                                <p class="naranja">Hola <?=$usuario?></p>
-                                <p>Escribe tu nueva contraseña</p>
-                                <input type='password' name='pass1'><br><br>
-                                <p>Escribe otra vez la contraseña</p>
-                                <input type='password' name='pass2'><br>
-                                <input class="btn bgnaranja colortextos mt-3" type='submit' name='submit' value='Enviar'><br><span><?=$error?></span>
-
-                            </form>
-                        </div>
                         
                     </div>
                 </div>

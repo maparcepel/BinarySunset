@@ -54,7 +54,7 @@
                     </div>   
                 </div>
                 <div id="respuesta" class="col-12 mt-2 text-center naranja">
-                       <p>El proyecto ya existe!</p>
+                       <p></p>
                 </div>
             </section>
 

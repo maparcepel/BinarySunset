@@ -8,48 +8,12 @@
         }else{
         header('Location: ../login.php');
     }        
-    
     require("../funciones.php");
-   $error_fichero ='';
+    
 
-   
-     if(isset($_REQUEST["submit"]) && isset($_FILES["audio"]) &&($_SERVER["REQUEST_METHOD"] == "POST")){
-            $proyecto = htmlspecialchars($_GET['proyecto'],ENT_QUOTES);
-            $cancion = htmlspecialchars($_GET['cancion'],ENT_QUOTES);
-//SUBIR MP3        
-            if(empty($_FILES["audio"]["name"])){
-                $error_fichero = "Debes seleccionar un mp3";
-            }else{
-                $comprobacion_fichero = validaFichero($_FILES["audio"]);
-                if($comprobacion_fichero == null){
-                    $nombre_fichero = $proyecto . "-" . $cancion . "-" . time() . ".mp3";
-                    $ruta = '../mp3/' . $nombre_fichero;   
-                }else{
-                    $error_fichero = $comprobacion_fichero;
-                    echo $error_fichero;
-                }
-            } 
-            if(empty($error_fichero)){
-                move_uploaded_file($_FILES["audio"]["tmp_name"], $ruta );
-            }
-//BUSCA EL ULTIMO MIX            
-            $con = conectarABBDD();
-            $sql = "SELECT  nombreCancion FROM Canciones WHERE grupo = '" . $proyecto . "' && nombreCancion LIKE '" . $cancion . "%'  ORDER BY nombreCancion DESC LIMIT 1";
-            $resultat = mysqli_query($con,$sql) or die("Consulta fallida:" . mysqli_error($con));
-            $registre = mysqli_fetch_array($resultat, MYSQLI_ASSOC);
-            $mix = $registre['nombreCancion'];
-            $mix_nom = substr($mix, 0, -1);
-            $mix_num = substr($mix, -1)+1;
-            $nuevo_mix = $mix_nom . $mix_num;
-//CREA UNA NUEVA FILA Y GUARDA LA UBICACION DEL MP3       
-            $sql = 'INSERT INTO Canciones VALUES ("'. $nuevo_mix . '", "'. $proyecto . '", "'. $ruta . '")'; 
-            mysqli_query($con,$sql) or die('Consulta fallida: ' . mysqli_error($con)); 
-            $sql = 'INSERT INTO Comentarios (nomCancion) VALUES ("'. $nuevo_mix . '")'; 
-            mysqli_query($con,$sql) or die('Consulta fallida: ' . mysqli_error($con)); 
-        }
         
         
-    $no_hay_cancion= '';    
+        
     if(isset($_GET['proyecto']) && !empty($_GET['cancion'])){   
         $proyecto = htmlspecialchars($_GET['proyecto'],ENT_QUOTES);
         $cancion = htmlspecialchars($_GET['cancion'],ENT_QUOTES);
@@ -130,22 +94,15 @@
              <h5 class="naranja"><?=$proyecto . " - " . $cancion_mix?></h5>
             <?php
                 if($ubicacionCancion == null){
-                    echo "";
+                    echo "nop";
                 }else{
-                   include('player_admin.html'); 
+                   include('player_usuario.html'); 
                 }
                 
             ?>
             <p id="respuesta"></p>
             
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>?proyecto=<?=$proyecto?>&cancion=<?=$cancion?>" method='POST' enctype="multipart/form-data">
-                    
-                    <label>Subir nueva mezcla</label><br>
-                    <input  type="file" name="audio"> <span class='rojo' ><?=$error_fichero?></span><br><br>     
-                    
-                    <input class="btn btn-primary bgnaranja" type='submit' name='submit' value='Subir'>
-                        
-            </form>
+            
          </div>
          
     </body>

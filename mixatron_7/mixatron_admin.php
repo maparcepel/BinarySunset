@@ -49,7 +49,7 @@
         }
         
         
-    $no_hay_cancion= '';    
+        
     if(isset($_GET['proyecto']) && !empty($_GET['cancion'])){   
         $proyecto = htmlspecialchars($_GET['proyecto'],ENT_QUOTES);
         $cancion = htmlspecialchars($_GET['cancion'],ENT_QUOTES);

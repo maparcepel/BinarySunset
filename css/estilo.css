@@ -228,9 +228,9 @@ body{
     padding-top:0px !important;
 }
 
-#projectes_admin #respuesta p{
+/*#projectes_admin #respuesta p{
     display: none;
-}
+}*/
 #projectes_admin .accordion{
     width:230px;
 }

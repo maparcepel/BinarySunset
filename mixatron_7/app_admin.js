@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     wavesurfer.on('region-click', function(region, e) {
         e.stopPropagation();
         // Play on click, loop on shift click
-        e.shiftKey ? region.playLoop() : region.play();                
+        e.shiftKey ? region.playLoop() : region.play();               
     });
     wavesurfer.on('region-click', editAnnotation);
     wavesurfer.on('region-updated', saveRegions);
@@ -327,13 +327,29 @@ function editAnnotation(region) {
 }
 
 /**
- * Display annotation.
+ * Display annotation.                                                      COMENTARIOS PARA ADMIN
  */
 function showNote(region) {
     if (!showNote.el) {
         showNote.el = document.querySelector('#subtitle');
+        showNote.inicio = document.querySelector('#subtitle_inicio');
+        showNote.fin = document.querySelector('#subtitle_fin');
     }
-//    showNote.el.textContent = region.data.note || '–';
+    showNote.el.textContent = region.data.note || '–';
+    
+    var inicio_minutos2 = Math.floor(region.start / 60);
+    var inicio_segundos2 = Math.round(region.start % 60);
+    if(inicio_segundos2 < 10){
+        inicio_segundos2 = "0"+inicio_segundos2;
+    };
+   
+    var fin_minutos2 = Math.floor(region.end / 60);
+    var fin_segundos2 = Math.round(region.end % 60);
+    if(fin_segundos2 < 10){
+        fin_segundos2 = "0"+fin_segundos2;
+    };
+    showNote.inicio.textContent = inicio_minutos2 + ':' + inicio_segundos2 + ' - ' || '–';
+    showNote.fin.textContent = fin_minutos2 + ':' + fin_segundos2 + ' - '  || '–';
 }
 
 /**
@@ -358,7 +374,7 @@ window.GLOBAL_ACTIONS['delete-region'] = function() {
                         'idcomentario': form.elements.idcomentario.value,
             }
         }).then(function(respuesta){
-            location.reload();
+            console.log(respuesta);
         });
 };
 

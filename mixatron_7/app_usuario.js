@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     wavesurfer.on('region-click', function(region, e) {
         e.stopPropagation();
         // Play on click, loop on shift click
-        e.shiftKey ? region.playLoop() : region.play();                
+        e.shiftKey ? region.playLoop() : region.play();               
     });
     wavesurfer.on('region-click', editAnnotation);
     wavesurfer.on('region-updated', saveRegions);

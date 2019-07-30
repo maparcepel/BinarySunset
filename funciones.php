@@ -22,7 +22,7 @@ function conectarABBDD(){
                 $tmp_name = $fichero['tmp_name'];
                 $error = $fichero['error'];
                 $size = $fichero['size'];
-                $max_size = 1024 * 1024 * 9;
+                $max_size = 1024 * 1024 * 2;
                 $extension = $fichero['type'];
                 
                 if($error){
@@ -109,12 +109,12 @@ function conectarABBDD(){
 //SI NO EXISTE ESTE USUARIO EN TOKENS CREA UNA FILA            
             $sql="INSERT INTO Tokens (token, grupo) VALUES ('$token', '$usuario')";
             mysqli_query($con,$sql) or die("Consulta fallida:" . mysqli_error($con));
-            $link = "http://formacio.obsea.es:8081/CFO2018/marcelrodrigo/cambio_pass.php?token=$token"  ;
+            $link = "http://localhost:8888/BinarySunset/cambio_pass.php?token=$token"  ;
         }else{
 //SI  EXISTE EL USUARIO EN TOKENS ACTUALIZA LA FILA FILA            
-            $sql="UPDATE Tokens SET token= '$token' WHERE usuario= '$usuario'";
+            $sql="UPDATE Tokens SET token= '$token' WHERE grupo= '$usuario'";
             mysqli_query($con,$sql) or die("Consulta fallida:" . mysqli_error($con));
-            $link = "http://formacio.obsea.es:8081/CFO2018/marcelrodrigo/cambio_pass.php?token=$token"  ;
+            $link = "http://localhost:8888/BinarySunset/cambio_pass.php?token=$token"  ;
         }
         mysqli_close($con);  
         return $array=array('link'=>$link, 'usuario'=>$usuario);
