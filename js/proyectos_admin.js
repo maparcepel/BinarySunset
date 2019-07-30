@@ -6,9 +6,10 @@
             type: 'post',
             data: { "proyectos": "x"},
             success: function(proyectos) {
+                console.log(proyectos);
                var i = 0; 
             $.each(proyectos, function() {
-                if(proyectos[i][0] !== 'admin'){
+                
                     item = '<div class="card"><div class="card-header" role="tab" id="heading' + i + '">';         
                     item += '<a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapse' + i + '"aria-expanded="false" aria-controls="collapse' + i + '">';         
      //INSERTA BOTON BORRAR PROYECTO               
@@ -40,7 +41,7 @@
 
                      });
                     i++;
-                }
+               
              });
 // INSERTA BOTON PARA AGREGAR PROYECTO
                 boton1 = '<div><a  href="" id="agregar_proyecto"><img class="mt-3"  src="img/boton_agregar.png" alt="Agregar nuevo proyecto"></a></div>';

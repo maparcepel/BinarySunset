@@ -51,7 +51,7 @@ function enviarMensaje($nombre, $email, $comentario){
 }
 
 //ENVIA EMAIL CON LINK PARA CAMBIO CONTRASEÑA
-function linkContrasena($email, $link, $usuario){
+function enviaEnlacePass($email, $link, $usuario){
 
     // Instantiation and passing `true` enables exceptions
     $mail = new PHPMailer(true);
@@ -68,7 +68,7 @@ function linkContrasena($email, $link, $usuario){
         $mail->Port       = 587;                                    // TCP port to connect to
 
         //Recipients
-        $mail->setFrom('maparcepel@gmail.com', 'Friend Face');
+        $mail->setFrom('biranysunsetestudio@gmail.com', 'Binary Sunset');
         $mail->addAddress($email, 'Querido usuario');     // Add a recipient
         //$mail->addAddress('ellen@example.com');               // Name is optional
         //$mail->addReplyTo('info@example.com', 'Information');
@@ -82,7 +82,7 @@ function linkContrasena($email, $link, $usuario){
         // Content
         $mail->isHTML(true);                                  // Set email format to HTML
         $mail->Subject = 'Cambio contraseña';
-        $mail->Body    = 'Clica el siguiente enlace para cambiar tu contraseña para el usuario '.$usuario.': <a href="' . $link . '">LINK</a>';
+        $mail->Body    = 'Has solicitado recuperar tu contraseña desde nuestra web. Clica el siguiente enlace para cambiar tu contraseña para el usuario '.$usuario.': <a href="' . $link . '">LINK</a>';
         //$mail->AltBody = 'Thi  body in plain text for non-HTML mail clients';
         $mail->CharSet = 'UTF-8';
         $mail->send();

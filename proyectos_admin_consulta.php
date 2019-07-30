@@ -4,7 +4,7 @@
     header('Content-Type: application/json');
     
     $con = conectarABBDD();
-    $sql = 'SELECT grupo FROM marcel.Proyectos ';
+    $sql = 'SELECT grupo FROM marcel.Proyectos WHERE grupo != "admin" ';
     $resultat = mysqli_query($con,$sql) or die('Consulta fallida: ' . mysqli_error($con));
 //crea un array bidimensional para enviar                    
     while ($registre = mysqli_fetch_array($resultat, MYSQLI_ASSOC)) {

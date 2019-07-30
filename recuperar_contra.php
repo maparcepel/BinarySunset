@@ -1,21 +1,29 @@
-<?php
+ <?php
         session_start();
-
+        $error="";
         require("funciones.php");
         
-        if(isset($_SESSION["login"]) && $_SESSION["login"] = true){
-               $usuario =  $_SESSION["usuario"];
-        }elseif(isset($_COOKIE["usuario"]) && $_isset(COOKIE["password"])){
-            validaCookie($_COOKIE["usuario"], $_COOKIE["password"]);
-        }else{
-            header('Location: login.php');
-        }
 
-?>
+        require("email/funcionesEmail.php");
+//ENVIA NUEVA CONTRASEÑA
 
-<html id="projectes_admin">
+        if(isset($_POST["submit"])){
+            $email = $_POST["email"];
+            $array = generaEnlaceContrasena($email);
+            if($array['link']=="error"){
+                $error='No existe un usuario con este email';
+            }else{
+                enviaEnlacePass($email, $array['link'], $array['usuario']);
+                header('Location: recuperar_contra_2.php');   
+            }
+            
+         }
+
+    ?>
+
+<html id="login">
     <head>
-        <title>Projectes</title>
+        <title>Login</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link  rel="shortcut icon"  href="img/favicon.ico">
@@ -28,42 +36,36 @@
 
     </head>
     <body>
-        <div class="container-fluid">
-            <div class="row pb-5 pt-5 ">
-                <div class="col-6 text-center" >
-                    <img class="img-fluid header_mix" src="img/logo_mixatron.png" alt="Logo Mixatron">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-6 d-flex flex-wrap aligh-content-end" id="menu"></div>
+                <div class="col-6   ">
+                     <img class="img-fluid float-right mt-2 mb-2 mr-2" src="img/logo2.png" alt="Logo Binary Sunset">
                 </div>
-                <div class="col-6 text-center">
-                     <img class="img-fluid header_mix" src="img/logo2.png" alt="Logo Binary Sunset">
-                </div>
+ 
             </div>
-            <div class="row" >
-                <div id="logout" class="col-12 text-right ">
-                    <a href="cerrar_sesion.php">LOGOUT</a>
-                </div>
-            </div>
-        </div>
-            
-            <section class="container" >
-
-                <div class="row ">
+            <section >
+                <div class="row">
+                   
                     <div class="col mt-5 d-flex justify-content-center">
-                        <div class="accordion md-accordion" id="accordionEx1" role="tablist" aria-multiselectable="true">
-                        <h5 class="naranja mb-3">Projectes:</h5>
-                          <!-- CRUD-->  
-                    </div>   
-                </div>
-                <div id="respuesta" class="col-12 mt-2 text-center naranja">
-                       <p>El proyecto ya existe!</p>
+
+                            <form  action='' method='POST'>
+                                <p>Escribe tu email para cambiar tu contraseña</p>
+                                <input class=" form-control form-control-sm w-75" type='email' name='email'>
+                                <input class="btn bgnaranja mt-3 colortextos" type='submit' name='submit' value='Enviar'><br><span class="rojo"><?=$error?></span>
+
+                            </form>
+                        
+                    </div>
                 </div>
             </section>
-
+        </div>
         
         
         
         <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script src="js/proyectos_admin.js"></script>
+        <script src="js/agregamenu.js"></script>
     </body>
 </html>

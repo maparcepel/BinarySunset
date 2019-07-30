@@ -85,3 +85,37 @@ function conectarABBDD(){
                 }
             }
         }
+
+         //DEVUELVE ARRAY CON LINK CON TOKEN Y EL USUARIO AL QUE CORRESPONDE
+ //SI NO EXISTE UN USUARIO CON ESTE EMAIL DEVOLVERA MENSAJE ERROR   
+    function generaEnlaceContrasena($email){
+        $link='';
+        $token=md5(rand(111111,99999999));
+        
+        $con = conectarABBDD();
+        $sql="SELECT grupo FROM Proyectos WHERE email='" . $email . "'";
+        $resultat= mysqli_query($con,$sql) or die("Consulta fallida:" . mysqli_error($con));
+        $registre = mysqli_fetch_array($resultat, MYSQLI_ASSOC);
+        $usuario=$registre['grupo'];
+        
+        $sql="SELECT grupo FROM Tokens WHERE grupo='" . $usuario . "'";
+        $resultat= mysqli_query($con,$sql) or die("Consulta fallida:" . mysqli_error($con));
+        $registre = mysqli_fetch_array($resultat, MYSQLI_ASSOC);
+        $usuario_token=$registre['grupo'];
+        
+        if($usuario==null){
+            $link="error";
+        }else if($usuario_token==null){
+//SI NO EXISTE ESTE USUARIO EN TOKENS CREA UNA FILA            
+            $sql="INSERT INTO Tokens (token, grupo) VALUES ('$token', '$usuario')";
+            mysqli_query($con,$sql) or die("Consulta fallida:" . mysqli_error($con));
+            $link = "http://formacio.obsea.es:8081/CFO2018/marcelrodrigo/cambio_pass.php?token=$token"  ;
+        }else{
+//SI  EXISTE EL USUARIO EN TOKENS ACTUALIZA LA FILA FILA            
+            $sql="UPDATE Tokens SET token= '$token' WHERE usuario= '$usuario'";
+            mysqli_query($con,$sql) or die("Consulta fallida:" . mysqli_error($con));
+            $link = "http://formacio.obsea.es:8081/CFO2018/marcelrodrigo/cambio_pass.php?token=$token"  ;
+        }
+        mysqli_close($con);  
+        return $array=array('link'=>$link, 'usuario'=>$usuario);
+    }

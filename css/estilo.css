@@ -192,7 +192,7 @@ body{
 
 /*LOGIN*/
 
-#login input[type="text"]{
+#login input[type="text"], input[type="password"]{
     background-color:#f1ede3;
 }
 #login form a{

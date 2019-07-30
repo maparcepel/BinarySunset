@@ -2,7 +2,7 @@
         session_start();
 //        usuario:admin - pass:1234
 //        usuario:Low Blows - pass:1234
- 
+        $error='';
         require("funciones.php");
         if(isset($_POST["submit"])){
             $error=comprueba_password ($_POST["usuario"], md5($_POST["password"]), $_POST["recordar"]);
@@ -68,7 +68,7 @@
                                 <label for="idboton"></label>
                                 <input type="submit" class="form-control form-control-sm bgnaranja colortextos w-25 mb-2" id="idboton" name="submit"><span class="rojo"><?=$error?></span>
                             </div>
-                            <a href="recuperacion_password.php">He olvidado mi contraseña</a>
+                            <a href="recuperar_contra.php">He olvidado mi contraseña</a>
 
 
 
