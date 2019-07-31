@@ -1,7 +1,7 @@
  <?php
         session_start();
 //        usuario:admin - pass:1234
-//        usuario:Low Blows - pass:1234
+//        usuario:Celestial Bums - pass:1234
         $error='';
         require("funciones.php");
         if(isset($_POST["submit"])){

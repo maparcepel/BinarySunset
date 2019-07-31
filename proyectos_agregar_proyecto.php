@@ -30,7 +30,7 @@
             $token=md5(rand(111111,99999999));
             $sql="INSERT INTO Tokens (token, grupo) VALUES ('$token', '$proyecto')";
             mysqli_query($con,$sql) or die("Consulta fallida:" . mysqli_error($con));
-            $link = "http://localhost:8888/BinarySunset/cambio_pass.php?token=$token"  ;
+            $link = "http://formacio.obsea.es:8081/CFO2018/marcelrodrigo/cambio_pass.php?token=$token"  ;
             invitacion_registro($email, $link ,$proyecto);
         }
                     

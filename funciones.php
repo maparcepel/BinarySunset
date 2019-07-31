@@ -109,12 +109,12 @@ function conectarABBDD(){
 //SI NO EXISTE ESTE USUARIO EN TOKENS CREA UNA FILA            
             $sql="INSERT INTO Tokens (token, grupo) VALUES ('$token', '$usuario')";
             mysqli_query($con,$sql) or die("Consulta fallida:" . mysqli_error($con));
-            $link = "http://localhost:8888/BinarySunset/cambio_pass.php?token=$token"  ;
+            $link = "http://formacio.obsea.es:8081/CFO2018/marcelrodrigo/cambio_pass.php?token=$token"  ;
         }else{
 //SI  EXISTE EL USUARIO EN TOKENS ACTUALIZA LA FILA FILA            
             $sql="UPDATE Tokens SET token= '$token' WHERE grupo= '$usuario'";
             mysqli_query($con,$sql) or die("Consulta fallida:" . mysqli_error($con));
-            $link = "http://localhost:8888/BinarySunset/cambio_pass.php?token=$token"  ;
+            $link = "http://formacio.obsea.es:8081/CFO2018/marcelrodrigo/cambio_pass.php?token=$token"  ;
         }
         mysqli_close($con);  
         return $array=array('link'=>$link, 'usuario'=>$usuario);
