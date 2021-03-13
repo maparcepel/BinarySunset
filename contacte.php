@@ -32,7 +32,6 @@
             <div class="row">
                 <div class="col-sm-12 col-md-6 mt-5 d-flex align-items-center justify-content-center">
                     <div class="text-center">
-                        <p class="mb-4">Tel: 625941002</p>
                         <p class="mb-4">marcel@binarysunsetestudio.com</p>
                         <a class="mr-3" href="https://www.facebook.com/BinarySunsetEstudio/" target="blank"><img src="img/facebook.png"></a> 
                         <a class="ml-3" href="https://www.instagram.com/binary_sunset_estudio/" target="blank"><img src="img/instagram.png"></a>

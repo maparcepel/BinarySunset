@@ -41,11 +41,24 @@
             </div>
             <section >
                 <div class="row">
-                    <div class="col-sm-12 col-md-6 mt-5 text-center img ">
+                    <div class="col-sm-12 col-md-6 mt-5 mb-5 text-center img ">
                         <img id="logo_mixatron"  src="img/logo_mixatron.png" alt="Logo Mixatron">
-                        <h6 class="font-italic mt-2">Una herramienta para optimizar</h6>
-                        <h6 class="font-italic">el feedback entre músicos y técnico de sonido</h6>
+                        <h6 class="font-italic mt-2 ">Una herramienta para optimizar</h6>
+                        <h6 class="font-italic mb-5">el feedback entre músicos y técnico de sonido</h6>
+                        
+                        <h6 class="mt-5 text-info font-weight-bold">Instrucciones para usuarios invitados (instrucciones no visibles en la instalación oficial de la web):</h6>
+                        
+                        <p class="text-info">Mixatrón establece un marco bien estructurado para el intercambio de información entre técnico y músico durante el proceso de mezcla. </p>
+                        <p class="text-info">Las canciones que hay en este momento se repiten porque han sido subidas para pruebas y no están completas por la limitación de 2 mb de este servidor. Puedes subir libremente ficheros mp3 siempre que no superen este límite. </p>
+                        <h6 class="text-info font-weight-bold">----PERFIL TÉCNICO DE SONIDO----</h6>
+                        <h6 class="text-info font-weight-bold">Usuario: admin - password: 1234</h6>
+                        <p class="text-info">Al entrar como usuario "técnico de sonido" se pueden ver todos los proyectos (grupos) y canciones en que estamos trabajando, 
+                            agregar proyectos y/o canciones a la base de datos, escuchar y ver el audio de una cancion, ver comentarios que ha dejado el grupo y subir un nuevo mp3 a partir de esos comentarios.</p>
+                        <h6 class="text-info font-weight-bold">----PERFIL MÚSICO----</h6>
+                        <h6 class="text-info font-weight-bold">Usuario: Celestial Bums - password: 1234</h6>
+                        <p class="text-info">El usuario "músico" puede ver las canciones que ha subido para él el técnico, puede escucharlas y poner comentarios sobre el audio con instrucciones para que el técnico reaLice una nueva mezcla.</p>
                     </div>
+                    
                     <div class="col-sm-12 col-md-6 mt-5">
                         <div>
 
@@ -74,6 +87,7 @@
 
                         </form>
                     </div>
+                    
                 </div>
             </section>
         </div>

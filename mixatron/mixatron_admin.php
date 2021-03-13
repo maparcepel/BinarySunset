@@ -128,6 +128,7 @@
         </div>
          <div class="container">
              <h5 class="naranja"><?=$proyecto . " - " . $cancion_mix?></h5>
+             <h6 >Clica sobre una de las regiones de color para ver el comentario que te ha dejado el grupo</h6>
             <?php
                 if($ubicacionCancion == null){
                     echo "";

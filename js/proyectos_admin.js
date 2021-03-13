@@ -51,7 +51,7 @@
                     event.preventDefault();
                     
 //ENTRADA DE NUEVO PROYECTO
-                    input_texto = $('<input id="nuevo_proyecto" class="form-control form-control-sm w-75 d-inline mt-2" type="text"  size="10" placeholder="Proyecto"><input id="nuevo_proyecto_email" class="form-control form-control-sm w-75 d-inline mt-2" type="text"  size="10" placeholder="Email"><a id="agregar_proyecto_2"href=""><img class="float-right mt-2"  src="img/boton_ir.png" alt="Agregar nuevo proyecto"></a> ');
+                    input_texto = $('<input id="nuevo_proyecto" class="form-control form-control-sm w-75 d-inline mt-2" type="text"  size="10" placeholder="Proyecto"><input id="nuevo_proyecto_email" class="form-control form-control-sm w-75 d-inline mt-2" type="text"  size="10" placeholder="Email"><a id="agregar_proyecto_2"href=""><img class="float-right mt-2"  src="img/boton_ir.png" alt="Agregar nuevo proyecto"></a><br><p>Se enviará un email al grupo para que genere su contraseña de Mixatrón</p> ');
 
                     $('#agregar_proyecto').replaceWith(input_texto.hide().fadeIn('slow'));
                     $('#agregar_proyecto_2').click(function(event){
